@@ -509,7 +509,8 @@ service msm_irqbalance /system/bin/msm_irqbalance -f /system/etc/msm_irqbalance.
 service cnd /system/bin/cnd
     class main
     socket cnd stream 660 root inet
-    group root wakelock
+    user system
+    group system wifi inet radio wakelock net_admin
     writepid /dev/cpuset/system-background/tasks
 
 service ssr_setup /system/bin/ssr_setup
