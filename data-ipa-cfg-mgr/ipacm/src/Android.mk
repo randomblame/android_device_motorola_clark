@@ -18,8 +18,7 @@ LOCAL_C_INCLUDES += external/libnfnetlink/include
 
 LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 
-LOCAL_CFLAGS := -v
-LOCAL_CFLAGS += -DFEATURE_IPA_ANDROID
+LOCAL_CFLAGS := -DFEATURE_IPA_ANDROID
 LOCAL_CFLAGS += -DDEBUG
 
 ifeq ($(TARGET_ARCH),arm)
