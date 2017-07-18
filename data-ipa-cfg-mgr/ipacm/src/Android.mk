@@ -19,7 +19,9 @@ LOCAL_C_INCLUDES += external/libnfnetlink/include
 LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 
 LOCAL_CFLAGS := -DFEATURE_IPA_ANDROID
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 LOCAL_CFLAGS += -DDEBUG
+endif
 
 ifeq ($(TARGET_ARCH),arm)
 LOCAL_CFLAGS += -include bionic/libc/kernel/arch-arm/asm/posix_types.h
