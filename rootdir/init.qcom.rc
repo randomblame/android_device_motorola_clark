@@ -329,6 +329,7 @@ service rmt_storage /system/bin/rmt_storage
     user root
     group system wakelock
     writepid /dev/cpuset/system-background/tasks
+    shutdown critical
 
 service rfs_access /system/bin/rfs_access
     class core
