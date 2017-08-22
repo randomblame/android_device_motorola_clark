@@ -102,6 +102,7 @@ ro.hdmi.enable=true
 tunnel.audio.encode=false
 use.voice.path.for.pcm.voip=true
 vidc.enc.dcvs.extra-buff-count=2
+persist.media.treble_omx=false
 
 # Perf
 ro.min_freq_0=384000
