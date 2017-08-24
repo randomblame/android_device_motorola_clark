@@ -213,7 +213,8 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libshims_ims \
     libshim_ril \
-    libxml2
+    libxml2 \
+    rild_socket
 
 # Sensors
 PRODUCT_COPY_FILES += \
