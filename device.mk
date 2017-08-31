@@ -97,6 +97,7 @@ PRODUCT_COPY_FILES += \
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8992 \
+    libshims_get_process_name \
     flp.conf \
     gps.conf \
     izat.conf \
