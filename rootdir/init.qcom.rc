@@ -91,13 +91,13 @@ on boot
     # set permission for Dynamic-CABC feature
     chown system system /sys/class/graphics/fb0/cabc_mode
 
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /proc/bluetooth/sleep/proto
     chown bluetooth bluetooth /proc/bluetooth/sleep/lpm
     chown bluetooth bluetooth /proc/bluetooth/sleep/btwrite
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/device/extldo
-    chown bluetooth net_bt_stack /dev/ttyHS0
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/device/extldo
+    chown bluetooth bluetooth /dev/ttyHS0
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /proc/bluetooth/sleep/proto
     chmod 0660 /dev/ttyHS0
@@ -346,7 +346,7 @@ service rfs_access /system/bin/rfs_access
 service wcnss_filter /system/bin/wcnss_filter
     class late_start
     user root
-    group bluetooth diag log wakelock system net_bt_stack
+    group bluetooth diag log wakelock system bluetooth
     seclabel u:r:moto_wcnss_filter:s0
     disabled
 
