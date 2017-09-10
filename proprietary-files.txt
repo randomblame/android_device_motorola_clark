@@ -625,6 +625,7 @@ vendor/lib/libnetmgr.so
 vendor/lib64/libnetmgr.so
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
+vendor/lib64/libprotobuf-cpp-preo.so|023ad21474eba528437deaacd1c8bf260f304783
 vendor/lib/librcc.so
 vendor/lib64/librcc.so
 vendor/lib/lib-rcsimssjni.so
@@ -642,7 +643,7 @@ vendor/lib64/libril-qc-qmi-1.so
 vendor/lib/libril-qcril-hook-oem.so
 vendor/lib64/libril-qcril-hook-oem.so
 vendor/lib/libsettings.so
-vendor/lib64/libsettings.so
+vendor/lib64/libsettings.so|1812b737745ca0b96f234aa21141af82cd7a7c39
 vendor/lib/libxml.so
 vendor/lib64/libxml.so
 vendor/lib64/libqcmaputils.so
