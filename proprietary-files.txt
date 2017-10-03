@@ -442,7 +442,6 @@ vendor/lib/libllvm-qcom.so
 vendor/lib/librs_adreno.so
 vendor/lib/librs_adreno_sha1.so
 vendor/lib/libscale.so
-vendor/lib/libuiblur.so
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
 vendor/lib64/egl/libGLESv1_CM_adreno.so
@@ -465,7 +464,6 @@ vendor/lib64/libllvm-qcom.so
 vendor/lib64/librs_adreno.so
 vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/libscale.so
-vendor/lib64/libuiblur.so
 
 # Media
 etc/firmware/dxhdcp2.b00
