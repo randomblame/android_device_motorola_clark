@@ -514,6 +514,7 @@ vendor/lib/libcneqmiutils.so
 vendor/lib64/libcneqmiutils.so
 vendor/lib/libcne.so
 vendor/lib64/libcne.so
+vendor/lib64/libprotobuf-cpp-lpro.so
 vendor/lib/libvendorconn.so
 vendor/lib64/libvendorconn.so
 vendor/lib/libwqe.so
@@ -607,6 +608,7 @@ vendor/lib/libmdmdetect.so
 vendor/lib64/libmdmdetect.so
 vendor/lib/libnetmgr.so
 vendor/lib64/libnetmgr.so
+vendor/lib64/libprotobuf-cpp-preo.so
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 vendor/lib64/libprotobuf-cpp-preo.so|023ad21474eba528437deaacd1c8bf260f304783
