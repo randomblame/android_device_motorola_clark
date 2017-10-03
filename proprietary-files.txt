@@ -334,6 +334,10 @@ vendor/lib64/mediadrm/libdrmclearkeyplugin.so
 vendor/lib/hw/keystore.msm8992.so
 vendor/lib64/hw/keystore.msm8992.so
 
+# Gatekeeper
+vendor/lib/hw/gatekeeper.msm8992.so
+vendor/lib64/hw/gatekeeper.msm8992.so
+
 # Display tuning
 vendor/lib/libmm-als.so
 vendor/lib64/libmm-als.so
