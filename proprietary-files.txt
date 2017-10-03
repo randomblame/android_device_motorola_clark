@@ -521,7 +521,6 @@ vendor/lib/libwqe.so
 vendor/lib64/libwqe.so
 
 # Radio
--app/ims/ims.apk
 -app/MotoSignatureApp/MotoSignatureApp.apk:app/MotoSignatureApp/MotoSignatureApp.apk:PRESIGNED
 -priv-app/atfwd/atfwd.apk
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
@@ -532,10 +531,6 @@ bin/diag_mdlog-wrap
 bin/diag_qshrink4_daemon
 bin/port-bridge
 bin/test_diag
-bin/imscmservice
-bin/imsdatadaemon
-bin/imsqmidaemon
-bin/ims_rtp_daemon
 bin/ipacm-diag
 bin/netmgrd
 bin/qmi_motext_hook
@@ -558,7 +553,6 @@ etc/diag_mdlog/GNSS_SUPL_V7.cfg
 etc/diag_mdlog/GNSS_V7.cfg
 etc/diag_mdlog/Vzw_Connection_Issues_V2.cfg
 etc/diag_mdlog/WLAN_V1.cfg
-etc/permissions/ims.xml
 etc/permissions/org.simalliance.openmobileapi.xml
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
@@ -574,34 +568,6 @@ lib/libqmimotext.so
 lib64/libqmimotext.so
 lib64/libadropbox.so
 vendor/qcril.db
-vendor/lib/lib-imscamera.so
-vendor/lib64/lib-imscamera.so
-vendor/lib/lib-imsdpl.so
-vendor/lib64/lib-imsdpl.so
-vendor/lib/lib-imsqimf.so
-vendor/lib64/lib-imsqimf.so
-vendor/lib/lib-imsrcs.so
-vendor/lib64/lib-imsrcs.so
-vendor/lib/lib-imsrcscm.so
-vendor/lib64/lib-imsrcscm.so
-vendor/lib/lib-imsrcscmclient.so
-vendor/lib64/lib-imsrcscmclient.so
-vendor/lib/lib-ims-rcscmjni.so
-vendor/lib64/lib-ims-rcscmjni.so
-vendor/lib/lib-imsrcscmservice.so
-vendor/lib64/lib-imsrcscmservice.so
-vendor/lib/lib-imss.so
-vendor/lib64/lib-imss.so
-vendor/lib/lib-imsSDP.so
-vendor/lib64/lib-imsSDP.so
-vendor/lib/lib-imsvt.so
-vendor/lib64/lib-imsvt.so
-vendor/lib/lib-imsxml.so
-vendor/lib64/lib-imsxml.so
-vendor/lib/libimscamera_jni.so
-vendor/lib64/libimscamera_jni.so
-vendor/lib/libimsmedia_jni.so
-vendor/lib64/libimsmedia_jni.so
 vendor/lib/liblqe.so
 vendor/lib64/liblqe.so
 vendor/lib/libmdmdetect.so
@@ -611,13 +577,6 @@ vendor/lib64/libnetmgr.so
 vendor/lib64/libprotobuf-cpp-preo.so
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
-vendor/lib64/libprotobuf-cpp-preo.so|023ad21474eba528437deaacd1c8bf260f304783
-vendor/lib/librcc.so
-vendor/lib64/librcc.so
-vendor/lib/lib-rcsimssjni.so
-vendor/lib64/lib-rcsimssjni.so
-vendor/lib/lib-rcsjni.so
-vendor/lib64/lib-rcsjni.so
 vendor/lib/libril-qc-ltedirectdisc.so
 vendor/lib64/libril-qc-ltedirectdisc.so
 vendor/lib/libril-qc-radioconfig.so
