@@ -37,6 +37,7 @@
 #include "vendor_init.h"
 
 using android::base::GetProperty;
+using android::init::property_set;
 
 static void setSsim(void);
 static void setMsim(void);
