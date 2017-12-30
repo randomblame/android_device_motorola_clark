@@ -59,9 +59,9 @@ PRODUCT_PACKAGES += \
     libmm-qcamera \
     libmmcamera_interface \
     libmmjpeg_interface \
+    libshims_camera \
     mm-qcamera-app \
     Snap
-#    libshim_camera \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/com.motorola.cameraone.xml:system/etc/permissions/com.motorola.cameraone.xml
