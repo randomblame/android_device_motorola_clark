@@ -54,6 +54,8 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl \
+    camera.device@1.0-impl \
     libcamera \
     libqomx_core \
     libmm-qcamera \
@@ -260,7 +262,6 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.keymaster@3.0-impl \
     android.hardware.vibrator@1.0-impl.lineage \
-    android.hardware.camera.provider@2.4-impl \
     android.hardware.sensors@1.0-impl \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.power@1.0-impl \
