@@ -202,7 +202,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.msm8992
+    android.hardware.power@1.0-service-qti
 
 # Radio
 PRODUCT_COPY_FILES += \
@@ -278,7 +278,6 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-service.lineage \
     android.hardware.sensors@1.0-impl \
     android.hardware.gatekeeper@1.0-impl \
-    android.hardware.power@1.0-impl \
     android.hardware.thermal@1.0-impl \
     android.hardware.gnss@1.0-impl \
     android.hardware.usb@1.0-service
