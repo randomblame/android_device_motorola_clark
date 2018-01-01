@@ -31,7 +31,6 @@
 /sys/power/autosleep                            u:object_r:sysfs_power:s0
 
 /system/bin/adspd                               u:object_r:adspd_exec:s0
-/system/bin/batt_health                         u:object_r:batt_health_exec:s0
 /system/bin/hardware_revisions.sh               u:object_r:hwrev_exec:s0
 /system/bin/init.qcom.power.sh                  u:object_r:init-power-sh_exec:s0
 /system/bin/motosh                              u:object_r:sensors_exec:s0

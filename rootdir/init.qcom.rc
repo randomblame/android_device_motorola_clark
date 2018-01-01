@@ -178,7 +178,6 @@ on post-fs
     mkdir /persist/wifi 0755 mot_tcmd mot_tcmd
     mkdir /persist/bt 0755 mot_tcmd bluetooth
     mkdir /persist/wmdrm 0775 mot_drm mot_drm
-    mkdir /persist/batt_health 0755 mot_pwric mot_pwric
     mkdir /persist/mdm 0770 radio radio
     mkdir /persist/antcap 0755 mot_tcmd mot_tcmd
     mkdir /persist/security 02770 mot_tpapi mot_tpapi
@@ -521,10 +520,6 @@ service cnd /system/bin/cnd
 service ssr_setup /system/bin/ssr_setup
     class late_start
     oneshot
-
-service batt_health /system/bin/batt_health
-    class main
-    group mot_pwric
 
 service charger /charger
     class charger
