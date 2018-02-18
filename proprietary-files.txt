@@ -103,7 +103,6 @@ etc/firmware/cpp_firmware_v1_6_0.fw
 etc/firmware/cpp_firmware_v1_8_0.fw
 etc/permissions/com.motorola.camera.xml
 etc/permissions/com.motorola.gallery.xml
-lib/hw/camera.msm8992.so:lib/hw/camera.vendor.msm8992.so
 lib/libmot_lux_standardization.so
 lib/libadvalgcore.so
 lib/libAisAdapter.so
@@ -113,15 +112,11 @@ lib/libAlAisWrap.so
 lib/libcamerabgprocservice.so
 lib/libjscore.so
 lib/libjustshoot.so
-lib/libmm-qcamera.so
-lib/libmmcamera_interface.so
-lib/libmmjpeg_interface.so
 lib/libbson.so
 lib64/libbson.so
 lib/libmot_sensorlistener.so
 lib/libmot-qc-fd-offline.so
 lib/libmbs.so
-lib/libqomx_core.so
 vendor/lib/libmmipl.so
 vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
@@ -139,7 +134,6 @@ vendor/lib/libjpegehw.so
 vendor/lib/libmotocalibration.so
 vendor/lib64/libmotocalibration.so
 vendor/lib/libflash_sky81296.so
-vendor/lib/libSonyIMX230PdafLibrary.so
 vendor/lib/libactuator_mot_lc898212xd_camcorder.so
 vendor/lib/libactuator_mot_lc898212xd_camera.so
 vendor/lib/libactuator_mot_lc898212xd.so
