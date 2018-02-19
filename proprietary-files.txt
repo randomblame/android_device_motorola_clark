@@ -113,6 +113,7 @@ lib/libAlAisWrap.so
 lib/libcamerabgprocservice.so
 lib/libjscore.so
 lib/libjustshoot.so
+lib/libmm-qcamera.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
 lib/libbson.so
