@@ -282,6 +282,3 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
     android.hardware.gnss@1.0-impl \
     android.hardware.usb@1.0-service
-
-PRODUCT_COPY_FILES += \
-    device/motorola/clark/configs/manifest.xml:system/vendor/manifest.xml
