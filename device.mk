@@ -245,6 +245,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     thermanager
 
+# Vendor security patch level
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.lineage.build.vendor_security_patch=2017-09-05
+
 # Wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/hostapd.accept:system/etc/hostapd/hostapd.accept \
