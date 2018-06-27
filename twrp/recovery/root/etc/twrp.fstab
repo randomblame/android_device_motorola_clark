@@ -4,6 +4,7 @@
 /cache           ext4              /dev/block/platform/soc.0/f9824900.sdhci/by-name/cache
 /recovery        emmc              /dev/block/platform/soc.0/f9824900.sdhci/by-name/recovery
 /misc            emmc              /dev/block/platform/soc.0/f9824900.sdhci/by-name/misc
+/firmware        vfat              /dev/block/platform/soc.0/f9824900.sdhci/by-name/modem      flags=mounttodecrypt;fsflags=ro;display="Firmware"
 /efs1            emmc              /dev/block/platform/soc.0/f9824900.sdhci/by-name/modemst1   flags=backup=1;display=EFS
 /efs2            emmc              /dev/block/platform/soc.0/f9824900.sdhci/by-name/modemst2   flags=backup=1;subpartitionof=/efs1
 /external_sd     auto              /dev/block/mmcblk1p1  /dev/block/mmcblk1     flags=display="Micro SDcard";storage;wipeingui;removable
