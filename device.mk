@@ -152,7 +152,6 @@ PRODUCT_PACKAGES += \
 
 # Memory
 $(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
 
 # NFC
 PRODUCT_COPY_FILES += \
