@@ -163,7 +163,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
-    nfc_nci.bcm2079x.default \
+    nfc_nci.bcm2079x.msm8992 \
     NfcNci \
     Tag
 
