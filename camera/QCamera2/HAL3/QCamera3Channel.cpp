@@ -463,7 +463,7 @@ void QCamera3Channel::streamCbRoutine(mm_camera_super_buf_t *super_frame,
  * RETURN  :
  *==========================================================================*/
 void QCamera3Channel::dumpYUV(mm_camera_buf_def_t *frame, cam_dimension_t dim,
-        cam_frame_len_offset_t offset, uint8_t name)
+        cam_frame_len_offset_t, uint8_t name)
 {
     char buf[FILENAME_MAX];
     memset(buf, 0, sizeof(buf));
@@ -477,8 +477,7 @@ void QCamera3Channel::dumpYUV(mm_camera_buf_def_t *frame, cam_dimension_t dim,
     counter++;
     int file_fd = open(buf, O_RDWR | O_CREAT, 0644);
     if (file_fd >= 0) {
-        ssize_t written_len = write(file_fd, frame->buffer, offset.frame_len);
-        ALOGE("%s: written number of bytes %zd", __func__, written_len);
+        ALOGE("camera fuckup a");
         close(file_fd);
     } else {
         ALOGE("%s: failed to open file to dump image", __func__);
@@ -1044,8 +1043,7 @@ void QCamera3RawChannel::dumpRawSnapshot(mm_camera_buf_def_t *frame)
 
        int file_fd = open(buf, O_RDWR| O_CREAT, 0644);
        if (file_fd >= 0) {
-          ssize_t written_len = write(file_fd, frame->buffer, frame->frame_len);
-          ALOGE("%s: written number of bytes %zd", __func__, written_len);
+          ALOGE("camera fuckup b");
           close(file_fd);
        } else {
           ALOGE("%s: failed to open file to dump image", __func__);
@@ -1240,9 +1238,7 @@ void QCamera3RawDumpChannel::dumpRawSnapshot(mm_camera_buf_def_t *frame)
 
             int file_fd = open(buf, O_RDWR| O_CREAT, 0777);
             if (file_fd >= 0) {
-                ssize_t written_len =
-                        write(file_fd, frame->buffer, offset.frame_len);
-                CDBG("%s: written number of bytes %zd", __func__, written_len);
+                CDBG("camera fuckup cdbg1");
                 close(file_fd);
             } else {
                 ALOGE("%s: failed to open file to dump image", __func__);
