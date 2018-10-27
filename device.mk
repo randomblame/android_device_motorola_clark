@@ -116,8 +116,10 @@ PRODUCT_PACKAGES += \
     init.mmi.usb.rc \
     init.qcom.power.rc \
     init.qcom.power.sh \
-    init.qcom.rc \
-    ueventd.qcom.rc
+    init.qcom.rc
+
+PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:system/vendor/ueventd.rc
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := \
     ro.product.model \
