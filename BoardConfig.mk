@@ -80,10 +80,8 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4294967296
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-TARGET_FS_CONFIG_GEN += \
-    $(DEVICE_PATH)/fs_config/file_caps.fs \
-    $(DEVICE_PATH)/fs_config/mot_aids.fs \
-    $(DEVICE_PATH)/fs_config/qcom_aids.fs
+# AIDs and CAPS
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
