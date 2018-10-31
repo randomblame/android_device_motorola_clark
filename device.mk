@@ -110,15 +110,6 @@ PRODUCT_PACKAGES += \
     sap.conf \
     xtwifi.conf
 
-# Init
-PRODUCT_PACKAGES += \
-    fstab.qcom \
-    init.mmi.touch.sh \
-    init.mmi.usb.rc \
-    init.qcom.power.rc \
-    init.qcom.power.sh \
-    init.qcom.rc
-
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:system/vendor/ueventd.rc
 
