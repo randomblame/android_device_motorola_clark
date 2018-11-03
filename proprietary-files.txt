@@ -365,9 +365,6 @@ vendor/lib64/libsmemlog.so
 vendor/lib/libvoice-svc.so
 vendor/lib64/libvoice-svc.so
 
-#precompile nfc lib from oreo
-vendor/lib64/hw/nfc_nci.bcm2079x.default.so
-
 # GPS
 bin/loc_launcher
 bin/lowi-server
