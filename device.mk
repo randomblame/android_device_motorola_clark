@@ -281,8 +281,8 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service \
     android.hardware.thermal@1.0-impl \
-    android.hardware.gnss@1.1-impl \
-    android.hardware.gnss@1.1-service
+    android.hardware.gnss@1.0-impl \
+    android.hardware.gnss@1.0-service
 
 # USB
 PRODUCT_PACKAGES += \
