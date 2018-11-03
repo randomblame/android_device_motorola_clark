@@ -155,7 +155,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl-bcm \
     com.android.nfc_extras \
-    nfc_nci.bcm2079x.default \
     NfcNci \
     Tag
 
