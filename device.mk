@@ -17,10 +17,6 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product-if-exists, vendor/motorola/clark/clark-vendor.mk)
 
-# Default.prop
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/system.prop:$(TARGET_COPY_OUT_VENDOR)/default.prop
-
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/aanc_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/aanc_tuning_mixer.txt \
@@ -60,7 +56,6 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
-    camera.device@1.0-impl \
     camera.device@3.2-impl \
     camera.msm8992 \
     libcamera \
@@ -159,9 +154,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl-bcm \
     com.android.nfc_extras \
-    nfc_nci.bcm2079x.default \
     NfcNci \
     Tag
+
+# nfc_nci.bcm2079x.default \
 
 # Perf
 PRODUCT_COPY_FILES += \
@@ -203,7 +199,7 @@ PRODUCT_PACKAGES += \
 
 # Radio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sec_config:/etc/sec_config
+    $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
@@ -278,6 +274,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@2.0-impl \
     android.hardware.soundtrigger@2.0-impl \
     android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service \
     android.hardware.vibrator@1.0-service.lineage \

@@ -179,8 +179,8 @@ ifeq ($(WITH_TWRP),true)
 endif
 
 # Vendor Init
-#TARGET_INIT_VENDOR_LIB := libinit_clark
-#TARGET_RECOVERY_DEVICE_MODULES := libinit_clark
+TARGET_INIT_VENDOR_LIB := libinit_clark
+TARGET_RECOVERY_DEVICE_MODULES := libinit_clark
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
