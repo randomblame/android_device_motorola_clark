@@ -17,6 +17,10 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product-if-exists, vendor/motorola/clark/clark-vendor.mk)
 
+# Default.prop
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/system.prop:$(TARGET_COPY_OUT_VENDOR)/default.prop
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/aanc_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/aanc_tuning_mixer.txt \
