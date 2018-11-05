@@ -30,14 +30,14 @@ include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
-PERSIST_WCNSS := $(TARGET_OUT_ETC)/firmware/wlan/qca_cld/WCNSS_qcom_wlan_nv.bin
+PERSIST_WCNSS := $(TARGET_COPY_OUT_VENDOR)/firmware/wlan/qca_cld/WCNSS_qcom_wlan_nv.bin
 $(PERSIST_WCNSS): $(LOCAL_INSTALLED_MODULE)
 	@echo "WCNSS_qcom_wlan_factory_nv.bin Firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
 	$(hide) ln -sf /persist/$(notdir $@) $@
 
-WCNSS_CFG_INI := $(TARGET_OUT_ETC)/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
+WCNSS_CFG_INI := $(TARGET_COPY_OUT_VENDOR)/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
 $(WCNSS_CFG_INI): $(LOCAL_INSTALLED_MODULE)
 	@echo "WCNSS_qcom_cfg.ini Firmware link: $@"
 	@mkdir -p $(dir $@)
@@ -53,7 +53,7 @@ $(IMS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /system/vendor/lib64/$(notdir $@) $@
 
 WV_IMAGES := widevine.b00 widevine.b01 widevine.b02 widevine.b03 widevine.mdt
-WV_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(WV_IMAGES)))
+WV_SYMLINKS := $(addprefix $(TARGET_COPY_OUT_VENDOR)/firmware/,$(notdir $(WV_IMAGES)))
 $(WV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Widevine firmware link: $@"
 	@mkdir -p $(dir $@)
@@ -71,7 +71,7 @@ $(FIRMWARE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 ALL_DEFAULT_INSTALLED_MODULES += $(PERSIST_WCNSS) $(WCNSS_CFG_INI) $(IMS_SYMLINKS) $(WV_SYMLINKS) $(FIRMWARE_SYMLINKS)
 
 BT_FIRMWARE := btfw30.tlv btfw32.tlv btnv30.bin btnv32.bin
-BT_FIRMWARE_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(BT_FIRMWARE)))
+BT_FIRMWARE_SYMLINKS := $(addprefix $(TARGET_COPY_OUT_VENDOR)/firmware/,$(notdir $(BT_FIRMWARE)))
 $(BT_FIRMWARE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Creating BT firmware symlink: $@"
 	@mkdir -p $(dir $@)

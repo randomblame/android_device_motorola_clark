@@ -148,7 +148,7 @@ on boot
     write /data/misc/radio/copy_complete 0
     chown radio radio /data/misc/radio/copy_complete
     chmod 0660 /data/misc/radio/copy_complete
-    symlink /firmware/image/modem_pr/mbn_ota /data/misc/radio/modem_config
+    symlink /vendor/firmware/image/modem_pr/mbn_ota /data/misc/radio/modem_config
     write /data/misc/radio/copy_complete 1
 
     # File flags for prebuilt ril db file
@@ -321,54 +321,54 @@ on property:wc_transport.start_hci=true
 on property:wc_transport.start_hci=false
     stop start_hci_filter
 
-service irsc_util /system/bin/irsc_util "/etc/sec_config"
+service irsc_util /system/vendor/bin/irsc_util "/etc/sec_config"
     class main
     user root
     oneshot
 
-service rmt_storage /system/bin/rmt_storage
+service rmt_storage /system/vendor/bin/rmt_storage
     class core
     user root
     group system wakelock
     writepid /dev/cpuset/system-background/tasks
     shutdown critical
 
-service rfs_access /system/bin/rfs_access
+service rfs_access /system/vendor/bin/rfs_access
     class core
     user root
     group system net_raw
     writepid /dev/cpuset/system-background/tasks
 
-service start_hci_filter /system/bin/wcnss_filter
+service start_hci_filter /system/vendor/bin/wcnss_filter
     class late_start
     user bluetooth
     group bluetooth diag
     disabled
 
-service loc_launcher /system/bin/loc_launcher
+service loc_launcher /system/vendor/bin/loc_launcher
     class late_start
     group gps inet net_raw oem_2950 net_admin wifi
     writepid /dev/cpuset/system-background/tasks
 
-service qmuxd /system/bin/qmuxd
+service qmuxd /system/vendor/bin/qmuxd
     class main
     user root
     group radio audio bluetooth gps nfc diag wakelock
     writepid /dev/cpuset/system-background/tasks
 
-service netmgrd /system/bin/netmgrd
+service netmgrd /system/vendor/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet
     writepid /dev/cpuset/system-background/tasks
 
-service ipacm-diag /system/bin/ipacm-diag
+service ipacm-diag /system/vendor/bin/ipacm-diag
     class main
     user system
     socket ipacm_log_file dgram 660 system net_admin
     group net_admin diag
 
-service ipacm /system/bin/ipacm
+service ipacm /system/vendor/bin/ipacm
     class main
     user net_admin
     group net_admin inet
@@ -405,7 +405,7 @@ service location_mq /system/bin/location-mq
     group gps
     disabled
 
-service atfwd /system/bin/ATFWD-daemon
+service atfwd /system/vendor/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
@@ -435,71 +435,71 @@ service ril-daemon3 /vendor/bin/hw/rild -c 3
     group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
-service qcamerasvr /system/bin/mm-qcamera-daemon
+service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
     writepid /dev/cpuset/system-background/tasks
 
-service qseecomd /system/bin/qseecomd
+service qseecomd /system/vendor/bin/qseecomd
     class core
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service per_mgr /system/bin/pm-service
+service per_mgr /system/vendor/bin/pm-service
     class core
     user system
     group system net_raw
     writepid /dev/cpuset/system-background/tasks
 
-service per_proxy /system/bin/pm-proxy
+service per_proxy /system/vendor/bin/pm-proxy
     class core
     user system
     group system net_raw
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-service time_daemon /system/bin/time_daemon
+service time_daemon /system/vendor/bin/time_daemon
     class late_start
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service adsprpcd /system/bin/adsprpcd
+service adsprpcd /system/vendor/bin/adsprpcd
     class main
     user media
     group media
 
-service atvc_core /system/bin/dbvc_atvc_property_set
+service atvc_core /system/vendor/bin/dbvc_atvc_property_set
     class core
     user vendor_mot_atvc
     seclabel u:r:atvc:s0
     group vendor_mot_tpapi
     oneshot
 
-service atvc /system/bin/dbvc_atvc_property_set
+service atvc /system/vendor/bin/dbvc_atvc_property_set
     class late_start
     user vendor_mot_atvc
     seclabel u:r:atvc:s0
     group vendor_mot_tpapi
     oneshot
 
-service msm_irqbalance /system/bin/msm_irqbalance -f /system/etc/msm_irqbalance.conf
+service msm_irqbalance /system/vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
     socket msm_irqbalance seqpacket 660 root system
     class core
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service cnd /system/bin/cnd
+service cnd /system/vendor/bin/cnd
     class main
     socket cnd stream 660 root inet
     user system
     group system wifi inet radio wakelock net_admin
     writepid /dev/cpuset/system-background/tasks
 
-service ssr_setup /system/bin/ssr_setup
+service ssr_setup /system/vendor/bin/ssr_setup
     class late_start
     oneshot
 
@@ -509,7 +509,7 @@ service charger /charger
     seclabel u:r:healthd:s0
     writepid /dev/cpuset/system-background/tasks
 
-service motosh /system/bin/motosh boot
+service motosh /system/vendor/bin/motosh boot
     class late_start
     user compass
     group compass misc input vendor_mot_tcmd
@@ -520,13 +520,13 @@ service mmi-touch-sh /system/bin/sh /system/vendor/etc/init/hw/init.mmi.touch.sh
     user root
     oneshot
 
-service hw_revs /system/bin/hardware_revisions.sh
+service hw_revs /system/vendor/bin/hardware_revisions.sh
     class late_start
     user system
     group system
     oneshot
 
-service adspd /system/bin/adspd
+service adspd /system/vendor/bin/adspd
    class main
    socket adspdsock stream 0660 system audio
    user audio
@@ -540,7 +540,7 @@ service perfd /system/vendor/bin/perfd
     writepid /dev/cpuset/system-background/tasks
 
 # OSS thermal management
-service thermanager /system/bin/thermanager /system/etc/thermanager.xml
+service thermanager /system/bin/thermanager /system/vendor/etc/thermanager.xml
     class late_start
     user root
     group root
