@@ -72,12 +72,6 @@ user:  AID_GPS
 group: AID_GPS
 caps: NET_BIND_SERVICE BLOCK_SUSPEND
 
-[system/vendor/bin/mm-qcamera-daemon]
-mode: 0700
-user: AID_CAMERA
-group: AID_SHELL
-caps: SYS_NICE
-
 [firmware/]
 mode: 0771
 user: AID_SYSTEM
