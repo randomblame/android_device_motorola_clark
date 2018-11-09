@@ -152,6 +152,8 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/releasetools
 
 # Ril
 TARGET_RIL_VARIANT := caf
+TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
+    /system/vendor/bin/hw/rild=23
 
 # SDClang
 TARGET_USE_SDCLANG := true

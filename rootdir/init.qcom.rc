@@ -351,7 +351,7 @@ on property:vendor.wc_transport.start_hci=false
 service start_hci_filter /system/vendor/bin/wcnss_filter
     class late_start
     user bluetooth
-    group bluetooth diag system
+    group bluetooth system wakelock
     disabled
     writepid /dev/cpuset/system-background/tasks
 
@@ -430,7 +430,7 @@ service ril-daemon2 /system/vendor/bin/hw/rild -c 2
     socket rild-debug2 stream 660 radio system
     user radio
     disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
+    group radio cache inet misc audio sdcard_r sdcard_rw oem_2901 log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
 service ril-daemon3 /system/vendor/bin/hw/rild -c 3
@@ -439,7 +439,7 @@ service ril-daemon3 /system/vendor/bin/hw/rild -c 3
     socket rild-debug3 stream 660 radio system
     user radio
     disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
+    group radio cache inet misc audio sdcard_r sdcard_rw oem_2901 log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
 service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
