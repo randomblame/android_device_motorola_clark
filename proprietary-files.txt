@@ -612,5 +612,3 @@ vendor/lib64/libTimeService.so
 # Wat - weird files
 bin/ssr_setup
 
-vendor/lib64/hw/nfc_nci.bcm2079x.default.so
-
