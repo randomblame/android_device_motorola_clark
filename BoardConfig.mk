@@ -22,9 +22,9 @@ TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_SMP := true
-TARGET_CPU_VARIANT := cortex-a53
+TARGET_CPU_VARIANT := generic
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-a
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53.a57
@@ -36,6 +36,7 @@ AUDIO_FEATURE_ENABLED_ACDB_LICENSE := true
 AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := true
 AUDIO_FEATURE_ENABLED_EXTN_FORMATS := true
 AUDIO_FEATURE_ENABLED_FLAC_OFFLOAD := true
+AUDIO_FEATURE_ENABLED_FLUENCE := true
 AUDIO_FEATURE_ENABLED_HFP := true
 AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := true
 AUDIO_FEATURE_ENABLED_LOW_LATENCY_CAPTURE := true
@@ -81,8 +82,10 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4294967296
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-# AIDs and CAPS
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
+TARGET_FS_CONFIG_GEN += \
+    $(DEVICE_PATH)/fs_config/file_caps.fs \
+    $(DEVICE_PATH)/fs_config/mot_aids.fs \
+    $(DEVICE_PATH)/fs_config/qcom_aids.fs
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
@@ -92,7 +95,7 @@ USE_DEVICE_SPECIFIC_GPS := true
 USE_DEVICE_SPECIFIC_LOC_API := true
 TARGET_NO_RPC := true
 
-# Graphics0
+# Graphics
 HAVE_ADRENO_SOURCE:= false
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -103,6 +106,7 @@ TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_HWC2 := true
 TARGET_USES_ION := true
+USE_OPENGL_RENDERER := true
 VSYNC_EVENT_PHASE_OFFSET_NS := 7500000
 
 # HIDL
@@ -120,7 +124,6 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CONFIG := clark_defconfig
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8992
-#TARGET_KERNEL_SOURCE := kernel/motorola/3.18
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -138,7 +141,7 @@ BOARD_USES_QC_TIME_SERVICES := true
 
 # Power
 TARGET_HAS_LEGACY_POWER_STATS := true
-TARGET_HAS_NO_WLAN_STATS := true
+TARGET_HAS_NO_WIFI_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
 
 # Protobuf-c is supported in this build
@@ -157,8 +160,8 @@ TARGET_RIL_VARIANT := caf
 TARGET_USE_SDCLANG := true
 
 # SELinux
-#include device/qcom/sepolicy/sepolicy.mk
-include device/qcom/sepolicy-legacy/sepolicy.mk
+include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/legacy-sepolicy.mk
 
 #BOARD_SEPOLICY_DIRS += \
 #    $(DEVICE_PATH)/sepolicy
@@ -168,6 +171,7 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib64/lib-imsvt.so|libshims_ims.so \
     /system/lib64/libandroid.so|libshim_ril.so \
     /system/lib/libjustshoot.so|libshims_camera.so \
+    /system/vendor/lib64/libril-qc-qmi-1.so|rild_socket.so \
     /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so \
     /system/lib/libmdmcutback.so|libqsap_shim.so \
     /system/lib64/libmdmcutback.so|libqsap_shim.so

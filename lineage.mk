@@ -2,7 +2,6 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 $(call inherit-product, device/motorola/clark/device.mk)
 
 # Inherit some common LineageOS stuff.
@@ -17,5 +16,3 @@ PRODUCT_DEVICE := clark
 PRODUCT_MODEL := XT1575
 PRODUCT_MANUFACTURER := motorola
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
-
-
