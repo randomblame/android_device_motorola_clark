@@ -12,7 +12,7 @@ on init
     chmod 0640 /sys/fs/pstore/annotate-ramoops
 
     # ESDFS
-    chown mot_esdfs root /proc/fs/esdfs/packages
+    chown vendor_mot_esdfs root /proc/fs/esdfs/packages
 
     # Set permissions for partitions
     mkdir /persist 0771 system system
@@ -55,8 +55,8 @@ on boot
     chmod 0664 /sys/class/leds/charging/brightness
 
     # Change the ownership of display files
-    chown root mot_tcmd /sys/class/graphics/fb0/te_enable
-    chown root mot_tcmd /sys/class/graphics/fb0/frame_counter
+    chown root vendor_mot_tcmd /sys/class/graphics/fb0/te_enable
+    chown root vendor_mot_tcmd /sys/class/graphics/fb0/frame_counter
     chown system system /sys/class/graphics/fb0/hbm
     chown system system /sys/class/graphics/fb0/cabc_mode
 
@@ -70,20 +70,20 @@ on boot
     write /dev/cpuset/top-app/cpus 0-5
 
     # motosh irq_disable parameter permissions
-    chown root mot_tcmd /sys/module/motosh/parameters/irq_disable
+    chown root vendor_mot_tcmd /sys/module/motosh/parameters/irq_disable
     chmod 0660 /sys/module/motosh/parameters/irq_disable
 
     # Quiet binder logs
     write /sys/module/binder/parameters/debug_mask 0x5
 
     # create the necessary data dirs for tpapi with proper permission
-    mkdir /data/tpapi 02770 mot_tpapi mot_tpapi
-    mkdir /data/tpapi/etc 02770 mot_tpapi mot_tpapi
-    mkdir /data/tpapi/etc/tpa 02770 mot_tpapi mot_tpapi
-    mkdir /data/tpapi/etc/tpa/persistent 02770 mot_tpapi mot_tpapi
+    mkdir /data/tpapi 02770 vendor_mot_tpapi vendor_mot_tpapi
+    mkdir /data/tpapi/etc 02770 vendor_mot_tpapi vendor_mot_tpapi
+    mkdir /data/tpapi/etc/tpa 02770 vendor_mot_tpapi vendor_mot_tpapi
+    mkdir /data/tpapi/etc/tpa/persistent 02770 vendor_mot_tpapi vendor_mot_tpapi
 
-    # Create moodle directory that MOT_MOODLE can write to
-    mkdir /data/local/moodle 0770 graphics mot_tcmd
+    # Create moodle directory that vendor_mot_MOODLE can write to
+    mkdir /data/local/moodle 0770 graphics vendor_mot_tcmd
 
     # set permission for Dynamic-CABC feature
     chown system system /sys/class/graphics/fb0/cabc_mode
@@ -161,29 +161,29 @@ on boot
     chmod 0660 /data/misc/radio/db_check_done
 
 on post-fs
-    mkdir /persist/camera 02755 mot_tcmd mot_tcmd
-    mkdir /persist/camera/ledcal 0755 camera mot_tcmd
-    mkdir /persist/factory 0755 mot_tcmd mot_tcmd
-    mkdir /persist/public 0755 mot_tcmd mot_tcmd
-    mkdir /persist/public/atvc 0770 mot_atvc shell
-    mkdir /persist/public/battd 0755 mot_accy mot_tcmd
+    mkdir /persist/camera 02755 vendor_mot_tcmd vendor_mot_tcmd
+    mkdir /persist/camera/ledcal 0755 camera vendor_mot_tcmd
+    mkdir /persist/factory 0755 vendor_mot_tcmd vendor_mot_tcmd
+    mkdir /persist/public 0755 vendor_mot_tcmd vendor_mot_tcmd
+    mkdir /persist/public/atvc 0770 vendor_mot_atvc shell
+    mkdir /persist/public/battd 0755 vendor_mot_accy vendor_mot_tcmd
     mkdir /persist/public/hiddenmenu 0755 radio radio
-    mkdir /persist/public/hiddenmenu/data 0775 system mot_tcmd
+    mkdir /persist/public/hiddenmenu/data 0775 system vendor_mot_tcmd
     mkdir /persist/public/locale 0700 system system
     mkdir /persist/public/omadm 0700 radio radio
     mkdir /persist/public/svcs 0770 system system
-    mkdir /persist/wifi 0755 mot_tcmd mot_tcmd
-    mkdir /persist/bt 0755 mot_tcmd bluetooth
-    mkdir /persist/wmdrm 0775 mot_drm mot_drm
+    mkdir /persist/wifi 0755 vendor_mot_tcmd vendor_mot_tcmd
+    mkdir /persist/bt 0755 vendor_mot_tcmd bluetooth
+    mkdir /persist/wmdrm 0775 vendor_mot_drm vendor_mot_drm
     mkdir /persist/mdm 0770 radio radio
-    mkdir /persist/antcap 0755 mot_tcmd mot_tcmd
-    mkdir /persist/security 02770 mot_tpapi mot_tpapi
+    mkdir /persist/antcap 0755 vendor_mot_tcmd vendor_mot_tcmd
+    mkdir /persist/security 02770 vendor_mot_tpapi vendor_mot_tpapi
     mkdir /persist/display 0770 system graphics
 
-    chown mot_tcmd mot_tcmd /persist/factory/fti
-    chown mot_tcmd mot_tcmd /persist/factory/byte
-    chown mot_tcmd mot_tcmd /persist/bt/bt_bdaddr
-    chown mot_tcmd mot_tcmd /persist/antcap
+    chown vendor_mot_tcmd vendor_mot_tcmd /persist/factory/fti
+    chown vendor_mot_tcmd vendor_mot_tcmd /persist/factory/byte
+    chown vendor_mot_tcmd vendor_mot_tcmd /persist/bt/bt_bdaddr
+    chown vendor_mot_tcmd vendor_mot_tcmd /persist/antcap
 
     chmod 0660 /persist/factory/fti
     chmod 0660 /persist/factory/byte
@@ -195,24 +195,24 @@ on post-fs
     # Move /persist/captouch_*.bin to /persist/antcap (if necessary)
     copy /persist/captouch_caldata.bin /persist/antcap/captouch_caldata.bin
     copy /persist/captouch_basedata.bin /persist/antcap/captouch_basedata.bin
-    chown mot_tcmd mot_tcmd /persist/antcap/captouch_caldata.bin
-    chown mot_tcmd mot_tcmd /persist/antcap/captouch_basedata.bin
+    chown vendor_mot_tcmd vendor_mot_tcmd /persist/antcap/captouch_caldata.bin
+    chown vendor_mot_tcmd vendor_mot_tcmd /persist/antcap/captouch_basedata.bin
     chmod 0644 /persist/antcap/captouch_basedata.bin
     chmod 0644 /persist/antcap/captouch_caldata.bin
     rm /persist/captouch_caldata.bin
     rm /persist/captouch_basedata.bin
 
     # Permissions CapSense firmware update & reset
-    chown mot_tcmd mot_tcmd /sys/class/capsense/fw_update
-    chown mot_tcmd mot_tcmd /sys/class/capsense/reset
+    chown vendor_mot_tcmd vendor_mot_tcmd /sys/class/capsense/fw_update
+    chown vendor_mot_tcmd vendor_mot_tcmd /sys/class/capsense/reset
     chmod 0660 /sys/class/capsense/fw_update
     chmod 0660 /sys/class/capsense/reset
 
 on post-fs-data
     # Setup correct permissions for dbvc and atvc
-    mkdir /pds/public/atvc 0770 mot_atvc shell
+    mkdir /pds/public/atvc 0770 vendor_mot_atvc shell
     chmod 0770 /pds/public/atvc
-    mkdir /data/local/atvc 0775 mot_tcmd shell
+    mkdir /data/local/atvc 0775 vendor_mot_tcmd shell
 
     # Create the directories used by the Wireless subsystem
     mkdir /data/vendor/wifi 0770 wifi wifi
@@ -266,7 +266,7 @@ on post-fs-data
     mkdir /data/misc/camera 0770 camera camera
 
     # Create directory's for various items
-    mkdir /data/power_supply_logger 0750 mot_pwric log
+    mkdir /data/power_supply_logger 0750 vendor_mot_pwric log
     mkdir /data/system 0775 system system
     mkdir /data/adspd/ 0770 audio oem_2950
     mkdir /data/hardware_revisions 0755 system system
@@ -472,16 +472,16 @@ service adsprpcd /system/bin/adsprpcd
 
 service atvc_core /system/bin/dbvc_atvc_property_set
     class core
-    user mot_atvc
+    user vendor_mot_atvc
     seclabel u:r:atvc:s0
-    group mot_tpapi
+    group vendor_mot_tpapi
     oneshot
 
 service atvc /system/bin/dbvc_atvc_property_set
     class late_start
-    user mot_atvc
+    user vendor_mot_atvc
     seclabel u:r:atvc:s0
-    group mot_tpapi
+    group vendor_mot_tpapi
     oneshot
 
 service msm_irqbalance /system/bin/msm_irqbalance -f /system/etc/msm_irqbalance.conf
@@ -511,7 +511,7 @@ service charger /charger
 service motosh /system/bin/motosh boot
     class late_start
     user compass
-    group compass misc input mot_tcmd
+    group compass misc input vendor_mot_tcmd
     oneshot
 
 service mmi-touch-sh /system/bin/sh /init.mmi.touch.sh synaptics
