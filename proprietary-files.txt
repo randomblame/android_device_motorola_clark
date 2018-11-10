@@ -101,8 +101,8 @@ vendor/firmware/cpp_firmware_v1_2_0.fw
 vendor/firmware/cpp_firmware_v1_4_0.fw
 vendor/firmware/cpp_firmware_v1_6_0.fw
 vendor/firmware/cpp_firmware_v1_8_0.fw
-etc/permissions/com.motorola.camera.xml
-etc/permissions/com.motorola.gallery.xml
+vendor/etc/permissions/com.motorola.camera.xml
+vendor/etc/permissions/com.motorola.gallery.xml
 lib/libmot_lux_standardization.so
 lib/libadvalgcore.so
 lib/libAisAdapter.so
@@ -370,8 +370,8 @@ bin/loc_launcher
 bin/lowi-server
 bin/xtwifi-client
 bin/xtwifi-inet-agent
-etc/permissions/com.qti.location.sdk.xml
-etc/permissions/com.qualcomm.location.xml
+vendor/etc/permissions/com.qti.location.sdk.xml
+vendor/etc/permissions/com.qualcomm.location.xml
 framework/com.qti.location.sdk.jar
 -lib/libloc_api_v02.so
 -lib64/libloc_api_v02.so
@@ -497,8 +497,8 @@ vendor/lib64/libqcci_legacy.so
 bin/cnd
 etc/cne/andsfCne.xml
 etc/cne/SwimConfig.xml
-etc/permissions/cneapiclient.xml
-etc/permissions/com.motorola.motosignature.xml
+vendor/etc/permissions/cneapiclient.xml
+vendor/etc/permissions/com.motorola.motosignature.xml
 framework/com.motorola.motosignature.jar
 vendor/lib/libcneapiclient.so
 vendor/lib64/libcneapiclient.so
@@ -545,9 +545,9 @@ etc/diag_mdlog/GNSS_SUPL_V7.cfg
 etc/diag_mdlog/GNSS_V7.cfg
 etc/diag_mdlog/Vzw_Connection_Issues_V2.cfg
 etc/diag_mdlog/WLAN_V1.cfg
-etc/permissions/org.simalliance.openmobileapi.xml
-etc/permissions/qcnvitems.xml
-etc/permissions/qcrilhook.xml
+vendor/etc/permissions/org.simalliance.openmobileapi.xml
+vendor/etc/permissions/qcnvitems.xml
+vendor/etc/permissions/qcrilhook.xml
 framework/qcnvitems.jar
 framework/qcrilhook.jar
 framework/qti-telephony-common.jar
