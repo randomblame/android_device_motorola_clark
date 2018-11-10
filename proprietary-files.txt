@@ -45,62 +45,62 @@ etc/acdbdata/Headset_cal.acdb
 etc/acdbdata/Handset_cal.acdb
 etc/acdbdata/Hdmi_cal.acdb
 etc/acdbdata/Speaker_cal.acdb
-etc/firmware/florida-dsp2-aov-frontend.wmfw
-etc/firmware/florida-dsp3-aov-control.wmfw
+vendor/firmware/florida-dsp2-aov-frontend.wmfw
+vendor/firmware/florida-dsp3-aov-control.wmfw
 
 # Audio firmware
-etc/firmware/left.tfa9890.music.config
-etc/firmware/left.tfa9890.music.eq
-etc/firmware/left.tfa9890.ringtone.config
-etc/firmware/left.tfa9890.ringtone.eq
-etc/firmware/left.tfa9890.speaker
-etc/firmware/left.tfa9890.voice.config
-etc/firmware/left.tfa9890.voice.eq
-etc/firmware/left.tfa9890_music_table.preset
-etc/firmware/left.tfa9890_n1b12.patch
-etc/firmware/left.tfa9890_n1c2.patch
-etc/firmware/left.tfa9890_ringtone_table.preset
-etc/firmware/left.tfa9890_voice_table.preset
-etc/firmware/right.tfa9890.music.config
-etc/firmware/right.tfa9890.music.eq
-etc/firmware/right.tfa9890.ringtone.config
-etc/firmware/right.tfa9890.ringtone.eq
-etc/firmware/right.tfa9890.speaker
-etc/firmware/right.tfa9890.voice.config
-etc/firmware/right.tfa9890.voice.eq
-etc/firmware/right.tfa9890_music_table.preset
-etc/firmware/right.tfa9890_n1b12.patch
-etc/firmware/right.tfa9890_n1c2.patch
-etc/firmware/right.tfa9890_ringtone_table.preset
-etc/firmware/right.tfa9890_voice_table.preset
-etc/firmware/vrgain.bin
+vendor/firmware/left.tfa9890.music.config
+vendor/firmware/left.tfa9890.music.eq
+vendor/firmware/left.tfa9890.ringtone.config
+vendor/firmware/left.tfa9890.ringtone.eq
+vendor/firmware/left.tfa9890.speaker
+vendor/firmware/left.tfa9890.voice.config
+vendor/firmware/left.tfa9890.voice.eq
+vendor/firmware/left.tfa9890_music_table.preset
+vendor/firmware/left.tfa9890_n1b12.patch
+vendor/firmware/left.tfa9890_n1c2.patch
+vendor/firmware/left.tfa9890_ringtone_table.preset
+vendor/firmware/left.tfa9890_voice_table.preset
+vendor/firmware/right.tfa9890.music.config
+vendor/firmware/right.tfa9890.music.eq
+vendor/firmware/right.tfa9890.ringtone.config
+vendor/firmware/right.tfa9890.ringtone.eq
+vendor/firmware/right.tfa9890.speaker
+vendor/firmware/right.tfa9890.voice.config
+vendor/firmware/right.tfa9890.voice.eq
+vendor/firmware/right.tfa9890_music_table.preset
+vendor/firmware/right.tfa9890_n1b12.patch
+vendor/firmware/right.tfa9890_n1c2.patch
+vendor/firmware/right.tfa9890_ringtone_table.preset
+vendor/firmware/right.tfa9890_voice_table.preset
+vendor/firmware/vrgain.bin
 
 # Bluetooth
 bin/btnvtool
 bin/hci_qcomm_init
 bin/wcnss_filter
 etc/user_bhd_psy.conf
-etc/firmware/nvm_tlv.bin
-etc/firmware/nvm_tlv_1.3.bin
-etc/firmware/nvm_tlv_2.1.bin
-etc/firmware/nvm_tlv_3.0.bin
-etc/firmware/nvm_tlv_3.2.bin
-etc/firmware/rampatch_tlv.img
-etc/firmware/rampatch_tlv_1.3.tlv
-etc/firmware/rampatch_tlv_2.1.tlv
-etc/firmware/rampatch_tlv_3.0.tlv
-etc/firmware/rampatch_tlv_3.2.tlv
+vendor/firmware/nvm_tlv.bin
+vendor/firmware/nvm_tlv_1.3.bin
+vendor/firmware/nvm_tlv_2.1.bin
+vendor/firmware/nvm_tlv_3.0.bin
+vendor/firmware/nvm_tlv_3.2.bin
+vendor/firmware/rampatch_tlv.img
+vendor/firmware/rampatch_tlv_1.3.tlv
+vendor/firmware/rampatch_tlv_2.1.tlv
+vendor/firmware/rampatch_tlv_3.0.tlv
+vendor/firmware/rampatch_tlv_3.2.tlv
 vendor/lib/libbtnv.so
 vendor/lib64/libbtnv.so
 
 # Camera
 bin/mm-qcamera-daemon
-etc/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_2_0.fw
-etc/firmware/cpp_firmware_v1_4_0.fw
-etc/firmware/cpp_firmware_v1_6_0.fw
-etc/firmware/cpp_firmware_v1_8_0.fw
+vendor/firmware/cpp_firmware_v1_1_1.fw
+vendor/firmware/cpp_firmware_v1_1_6.fw
+vendor/firmware/cpp_firmware_v1_2_0.fw
+vendor/firmware/cpp_firmware_v1_4_0.fw
+vendor/firmware/cpp_firmware_v1_6_0.fw
+vendor/firmware/cpp_firmware_v1_8_0.fw
 etc/permissions/com.motorola.camera.xml
 etc/permissions/com.motorola.gallery.xml
 lib/libmot_lux_standardization.so
@@ -408,10 +408,10 @@ vendor/lib/libxt_native.so
 vendor/lib64/libxt_native.so
 
 # Adreno GPU
-etc/firmware/a420_pfp.fw
-etc/firmware/a420_pm4.fw
-etc/firmware/leia_pfp_470.fw
-etc/firmware/leia_pm4_470.fw
+vendor/firmware/a420_pfp.fw
+vendor/firmware/a420_pm4.fw
+vendor/firmware/leia_pfp_470.fw
+vendor/firmware/leia_pm4_470.fw
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
@@ -459,18 +459,18 @@ vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/libscale.so
 
 # Media
-etc/firmware/dxhdcp2.b00
-etc/firmware/dxhdcp2.b01
-etc/firmware/dxhdcp2.b02
-etc/firmware/dxhdcp2.b03
-etc/firmware/dxhdcp2.mdt
-etc/firmware/venus.b00
-etc/firmware/venus.b01
-etc/firmware/venus.b02
-etc/firmware/venus.b03
-etc/firmware/venus.b04
-etc/firmware/venus.mbn
-etc/firmware/venus.mdt
+vendor/firmware/dxhdcp2.b00
+vendor/firmware/dxhdcp2.b01
+vendor/firmware/dxhdcp2.b02
+vendor/firmware/dxhdcp2.b03
+vendor/firmware/dxhdcp2.mdt
+vendor/firmware/venus.b00
+vendor/firmware/venus.b01
+vendor/firmware/venus.b02
+vendor/firmware/venus.b03
+vendor/firmware/venus.b04
+vendor/firmware/venus.mbn
+vendor/firmware/venus.mdt
 vendor/lib/libDxHdcp.so
 vendor/lib/libFlacSwDec.so
 vendor/lib64/libFlacSwDec.so
@@ -484,7 +484,7 @@ bin/dbvc_atvc_property_set
 bin/hardware_revisions.sh
 
 # NFC
-etc/firmware/BCM20795A2_001.003.025.0005.0048_Generic_I2C_NCD_Signed_configdata.ncd
+vendor/firmware/BCM20795A2_001.003.025.0005.0048_Generic_I2C_NCD_Signed_configdata.ncd
 
 # Qualcomm framework
 vendor/lib/libdsutils.so
@@ -586,13 +586,13 @@ vendor/lib64/libxml.so
 vendor/lib64/libqcmaputils.so
 
 # Touchscreen firmware
-etc/firmware/synaptics-s2726-15052160-1d19d9-clark.tdat
-etc/firmware/synaptics-s3528-15071401-1e29b4-clark.tdat
-etc/firmware/synaptics-s3528ar-15071401-1e29b4-clark.tdat
+vendor/firmware/synaptics-s2726-15052160-1d19d9-clark.tdat
+vendor/firmware/synaptics-s3528-15071401-1e29b4-clark.tdat
+vendor/firmware/synaptics-s3528ar-15071401-1e29b4-clark.tdat
 
 # Sensors
 bin/motosh
-etc/firmware/sensorhubfw.bin
+vendor/firmware/sensorhubfw.bin
 lib/hw/sensors.msm8992.so
 lib64/hw/sensors.msm8992.so
 vendor/lib/libsubsystem_control.so
