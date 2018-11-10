@@ -373,17 +373,17 @@ service vendor.netmgrd /system/vendor/bin/netmgrd
     group root wifi wakelock radio inet
     writepid /dev/cpuset/system-background/tasks
 
-#service ipacm-diag /system/vendor/bin/ipacm-diag
-#    class main
-#    user system
-#    socket ipacm_log_file dgram 660 system net_admin
-#    group net_admin diag
+service ipacm-diag /system/vendor/bin/ipacm-diag
+    class main
+    user system
+    socket ipacm_log_file dgram 660 system net_admin
+    group net_admin diag
 
-#service ipacm /system/vendor/bin/ipacm
-#    class main
-#    user net_admin
-#    group net_admin inet
-#    writepid /dev/cpuset/system-background/tasks
+service ipacm /system/vendor/bin/ipacm
+    class main
+    user net_admin
+    group net_admin inet
+    writepid /dev/cpuset/system-background/tasks
 
 service qti /system/vendor/bin/qti
     class main
@@ -424,24 +424,6 @@ service hostapd /system/bin/hostapd /data/misc/wifi/hostapd.conf
     group root
     oneshot
     disabled
-
-service vendor.ril-daemon2 /system/vendor/bin/hw/rild -c 2
-    class main
-    socket rild2 stream 660 root radio
-    socket rild-debug2 stream 660 radio system
-    user radio
-    disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
-    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
-
-service vendor.ril-daemon3 /system/vendor/bin/hw/rild -c 3
-    class main
-    socket rild3 stream 660 root radio
-    socket rild-debug3 stream 660 radio system
-    user radio
-    disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
-    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
 service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
     class late_start
