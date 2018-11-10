@@ -138,8 +138,9 @@ on boot
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
     # NFC local data and nfcee xml storage
+    mkdir /data/nfc 0770 nfc nfc
+    mkdir /data/nfc/param 0770 nfc nfc
     mkdir /data/vendor/nfc 0770 nfc nfc
-    mkdir /data/vendor/nfc/param 0770 nfc nfc
 
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
@@ -318,11 +319,11 @@ on property:init.svc.per_mgr=running
 on property:sys.shutdown.requested=*
     stop per_proxy
 
-on property:persist.radio.atfwd.start=false
-    stop atfwd
+on property:persist.vendor.radio.atfwd.start=false
+    stop vendor.atfwd
 
-on property:radio.atfwd.start=false
-    stop atfwd
+on property:vendor.radio.atfwd.start=false
+    stop vendor.atfwd
 
 service irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
     class main
@@ -366,23 +367,23 @@ service qmuxd /system/vendor/bin/qmuxd
     group radio audio bluetooth gps nfc diag
     writepid /dev/cpuset/system-background/tasks
 
-service netmgrd /system/vendor/bin/netmgrd
+service vendor.netmgrd /system/vendor/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet
     writepid /dev/cpuset/system-background/tasks
 
-service ipacm-diag /system/vendor/bin/ipacm-diag
-    class main
-    user system
-    socket ipacm_log_file dgram 660 system net_admin
-    group net_admin diag
+#service ipacm-diag /system/vendor/bin/ipacm-diag
+#    class main
+#    user system
+#    socket ipacm_log_file dgram 660 system net_admin
+#    group net_admin diag
 
-service ipacm /system/vendor/bin/ipacm
-    class main
-    user net_admin
-    group net_admin inet
-    writepid /dev/cpuset/system-background/tasks
+#service ipacm /system/vendor/bin/ipacm
+#    class main
+#    user net_admin
+#    group net_admin inet
+#    writepid /dev/cpuset/system-background/tasks
 
 service qti /system/vendor/bin/qti
     class main
@@ -412,10 +413,10 @@ service location_mq /system/bin/location-mq
     group gps
     disabled
 
-#service atfwd /system/vendor/bin/ATFWD-daemon
-#    class late_start
-#    user system
-#    group system radio
+service vendor.atfwd /system/vendor/bin/ATFWD-daemon
+    class late_start
+    user system
+    group system radio
 
 service hostapd /system/bin/hostapd /data/misc/wifi/hostapd.conf
     class late_start
@@ -424,22 +425,22 @@ service hostapd /system/bin/hostapd /data/misc/wifi/hostapd.conf
     oneshot
     disabled
 
-service ril-daemon2 /system/vendor/bin/hw/rild -c 2
+service vendor.ril-daemon2 /system/vendor/bin/hw/rild -c 2
     class main
     socket rild2 stream 660 root radio
     socket rild-debug2 stream 660 radio system
     user radio
     disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw oem_2901 log
+    group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
-service ril-daemon3 /system/vendor/bin/hw/rild -c 3
+service vendor.ril-daemon3 /system/vendor/bin/hw/rild -c 3
     class main
     socket rild3 stream 660 root radio
     socket rild-debug3 stream 660 radio system
     user radio
     disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw oem_2901 log
+    group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
 service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
@@ -499,7 +500,7 @@ service msm_irqbalance /system/vendor/bin/msm_irqbalance -f /system/vendor/etc/m
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service cnd /system/vendor/bin/cnd
+service vendor.cnd /system/vendor/bin/cnd
     class main
     socket cnd stream 660 root inet
     user system
