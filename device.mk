@@ -47,10 +47,10 @@ PRODUCT_PACKAGES += \
     tinymix
 
 # Bluetooth HAL
-#PRODUCT_PACKAGES += \
-#    android.hardware.bluetooth@1.0-impl \
-#    android.hardware.bluetooth@1.0-service \
-#    libbt-vendor
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service \
+    libbt-vendor
 
 # Camera
 PRODUCT_PACKAGES += \

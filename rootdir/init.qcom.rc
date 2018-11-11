@@ -320,11 +320,11 @@ on property:persist.radio.atfwd.start=false
 on property:radio.atfwd.start=false
     stop atfwd
 
-#on property:wc_transport.start_hci=true
-#    start start_hci_filter
+on property:wc_transport.start_hci=true
+    start start_hci_filter
 
-#on property:wc_transport.start_hci=false
-#    stop start_hci_filter
+on property:wc_transport.start_hci=false
+    stop start_hci_filter
 
 service irsc_util /system/vendor/bin/irsc_util "/etc/sec_config"
     class main
@@ -344,11 +344,11 @@ service rfs_access /system/vendor/bin/rfs_access
     group system net_raw
     writepid /dev/cpuset/system-background/tasks
 
-#service start_hci_filter /vendor/bin/wcnss_filter
-#    class late_start
-#    user bluetooth
-#    group bluetooth system wakelock
-#    disabled
+service start_hci_filter /vendor/bin/wcnss_filter
+    class late_start
+    user bluetooth
+    group bluetooth system wakelock
+    disabled
 
 service loc_launcher /system/vendor/bin/loc_launcher
     class late_start
