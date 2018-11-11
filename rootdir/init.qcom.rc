@@ -340,10 +340,10 @@ service rfs_access /system/bin/rfs_access
     group system net_raw
     writepid /dev/cpuset/system-background/tasks
 
-service start_hci_filter /system/bin/wcnss_filter
+service start_hci_filter /vendor/bin/wcnss_filter
     class late_start
     user bluetooth
-    group bluetooth diag system
+    group bluetooth system wakelock
     disabled
 
 service loc_launcher /system/bin/loc_launcher
