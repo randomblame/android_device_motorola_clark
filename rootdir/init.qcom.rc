@@ -265,6 +265,9 @@ on post-fs-data
     mkdir /data/misc/location/gsiff 0770 gps gps
     mkdir /data/misc/camera 0770 camera camera
 
+    #Create directories for gpsone_daemon services
+    mkdir /data/misc/gpsone_d 0770 system gps
+
     # Create directory's for various items
     mkdir /data/power_supply_logger 0750 vendor_mot_pwric log
     mkdir /data/system 0775 system system

@@ -155,8 +155,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # NFC
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/nfc/libnfc-brcm.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci.conf \
-    $(LOCAL_PATH)/nfc/libnfc-brcm-20795a20.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci-20795a20.conf
+    $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/nfc/libnfc-nci-20795a20.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci-20795a20.conf
 
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
@@ -205,6 +205,10 @@ PRODUCT_PACKAGES += \
 # Radio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+
+PRODUCT_PACKAGES+=\
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0
 
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
