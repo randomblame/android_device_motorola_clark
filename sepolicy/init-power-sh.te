@@ -5,7 +5,6 @@ init_daemon_domain(init-power-sh)
 
 allow init-power-sh cache_file:dir search;
 allow init-power-sh proc_kernel_sched:file w_file_perms;
-allow init-power-sh security_file:dir search;
 allow init-power-sh self:capability { chown net_admin };
 allow init-power-sh shell_exec:file r_file_perms;
 allow init-power-sh sysfs_devices_system_cpu:file { setattr w_file_perms };
@@ -14,7 +13,6 @@ allow init-power-sh sysfs_performance:dir search;
 allow init-power-sh sysfs_performance:file w_file_perms;
 allow init-power-sh sysfs_thermal:dir search;
 allow init-power-sh sysfs_thermal:file w_file_perms;
-allow init-power-sh sysfs_power_management:file w_file_perms;
 allow init-power-sh sysfs_rqstats:dir r_dir_perms;
 
 # interactive files in /sys receive the default sysfs context when created
