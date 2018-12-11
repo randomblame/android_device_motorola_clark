@@ -15,7 +15,6 @@ on init
     chown vendor_mot_esdfs root /proc/fs/esdfs/packages
 
     # Set permissions for partitions
-    mkdir /persist 0771 system system
     mkdir /firmware 0771 system system
     mkdir /bt_firmware 0771 system system
     mkdir /fsg 755 root root
@@ -31,12 +30,15 @@ on fs
     mount_all fstab.qcom
     swapon_all fstab.qcom
 
+    # Set permissions for persist partition
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    restorecon_recursive /mnt/vendor/persist
+
     # use /persist as phony PDS partition
     symlink /persist /pds
 
     symlink /data/tombstones /tombstones
-
-    restorecon_recursive /persist
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -70,7 +72,7 @@ on boot
     write /dev/cpuset/top-app/cpus 0-5
 
     # motosh irq_disable parameter permissions
-    chown root vendor_mot_tcmd /sys/module/motosh/parameters/irq_disable
+    chown system vendor_mot_tcmd /sys/module/motosh/parameters/irq_disable
     chmod 0660 /sys/module/motosh/parameters/irq_disable
 
     # Quiet binder logs
@@ -253,7 +255,7 @@ on post-fs-data
     chown audio audio /sys/kernel/aov/event
 
     # Create misc directory for various subsystems
-    mkdir /data/misc/sensorhub 0770 system compass
+    mkdir /data/misc/sensorhub 0770 system system
     mkdir /data/misc/cutback 0770 radio wifi
     mkdir /data/misc/audio 0770 audio audio
     mkdir /data/misc/audio/acdbdata 0770 media audio
@@ -512,10 +514,10 @@ service charger /charger
     seclabel u:r:healthd:s0
     writepid /dev/cpuset/system-background/tasks
 
-service motosh /system/vendor/bin/motosh boot
-    class late_start
-    user compass
-    group compass misc input vendor_mot_tcmd system
+service vendor.motosh /system/vendor/bin/motosh boot
+    class main
+    user system
+    group system misc input vendor_mot_tcmd
     oneshot
 
 service mmi-touch-sh /system/bin/sh /init.mmi.touch.sh synaptics
