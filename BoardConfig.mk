@@ -125,8 +125,8 @@ BOARD_RAMDISK_OFFSET     := 0x01000000
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CONFIG := clark_defconfig
 TARGET_KERNEL_HEADER_ARCH := arm64
-#TARGET_KERNEL_SOURCE := kernel/motorola/msm8992
-TARGET_KERNEL_SOURCE := kernel/motorola/3.18
+TARGET_KERNEL_SOURCE := kernel/motorola/msm8992
+#TARGET_KERNEL_SOURCE := kernel/motorola/3.18
 #TARGET_KERNEL_SOURCE := kernel/motorola/3.14
 
 # Lights
