@@ -34,6 +34,8 @@ on fs
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
     restorecon_recursive /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/bluetooth 0770 bluetooth bluetooth
+
 
     # use /persist as phony PDS partition
     symlink /persist /pds
@@ -322,10 +324,10 @@ on property:persist.radio.atfwd.start=false
 on property:radio.atfwd.start=false
     stop atfwd
 
-on property:wc_transport.start_hci=true
+on property:vendor.wc_transport.start_hci=true
     start start_hci_filter
 
-on property:wc_transport.start_hci=false
+on property:vendor.wc_transport.start_hci=false
     stop start_hci_filter
 
 service irsc_util /system/vendor/bin/irsc_util "/etc/sec_config"
