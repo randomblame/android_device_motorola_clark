@@ -1,16 +1,12 @@
 OLD_LOCAL_PATH := $(LOCAL_PATH)
 LOCAL_PATH := $(call my-dir)
 
-include $(LOCAL_PATH)/../../../common.mk
 include $(CLEAR_VARS)
 
 LOCAL_32_BIT_ONLY := $(BOARD_QTI_CAMERA_32BIT_ONLY)
 LOCAL_CFLAGS+= -D_ANDROID_
 
 LOCAL_CFLAGS += -Wall -Wextra -Werror -Wno-unused-parameter
-
-LOCAL_C_INCLUDES+= $(kernel_includes)
-LOCAL_ADDITIONAL_DEPENDENCIES := $(common_deps)
 
 LOCAL_C_INCLUDES += \
     frameworks/native/include/media/openmax \
@@ -54,6 +50,7 @@ LOCAL_SRC_FILES := \
     src/mm_jpegdec.c
 
 LOCAL_MODULE           := libmmjpeg_interface
+LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 LOCAL_SHARED_LIBRARIES := libdl libcutils liblog libqomx_core
 LOCAL_MODULE_TAGS := optional
 
