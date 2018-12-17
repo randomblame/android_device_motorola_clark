@@ -68,6 +68,9 @@ PRODUCT_PACKAGES += \
     Snap
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
+
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/com.motorola.cameraone.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.motorola.cameraone.xml
 
 # CMActions
@@ -125,7 +128,7 @@ PRODUCT_SYSTEM_PROPERTY_BLACKLIST := \
     ro.product.name
 
 # IPA Manager
-#PRODUCT_PACKAGES += \
+# PRODUCT_PACKAGES += \
 #    ipacm \
 #    IPACM_cfg.xml
 
@@ -158,11 +161,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
     $(LOCAL_PATH)/nfc/libnfc-nci-20795a20.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci-20795a20.conf
 
-#PRODUCT_PACKAGES += \
-#    com.android.nfc_extras \
-#    nfc_nci.bcm2079x.default \
-#    NfcNci \
-#    Tag
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    nfc_nci.bcm2079x.default \
+    NfcNci \
+    Tag
 
 # Perf
 PRODUCT_COPY_FILES += \
@@ -204,7 +207,7 @@ PRODUCT_PACKAGES += \
 
 # Radio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+    $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 PRODUCT_PACKAGES+=\
     android.hidl.base@1.0 \
@@ -231,7 +234,7 @@ PRODUCT_COPY_FILES += \
 # Sensors
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf \
-    $(LOCAL_PATH)/configs/sensorhub-blacklist.txt:$(TARGET_COPY_OUT_VENDOR)/firmware/sensorhub-blacklist.txt
+    $(LOCAL_PATH)/configs/sensorhub-blacklist.txt:system/etc/firmware/sensorhub-blacklist.txt
 
 # Telephony
 PRODUCT_PACKAGES += \

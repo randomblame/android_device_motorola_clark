@@ -330,7 +330,7 @@ on property:vendor.wc_transport.start_hci=true
 on property:vendor.wc_transport.start_hci=false
     stop start_hci_filter
 
-service irsc_util /system/vendor/bin/irsc_util "/etc/sec_config"
+service irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
     class main
     user root
     oneshot

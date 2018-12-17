@@ -713,9 +713,9 @@ int ipa_nati_alloc_table(uint16_t number_of_entries,
 
 	/* Calclate the memory size for both table and index table entries */
 	mem->size = (IPA_NAT_TABLE_ENTRY_SIZE * total_entries);
-	IPADBG("Nat Table size: %d\n", mem->size);
+	IPADBG("Nat Table size: %zu\n", mem->size);
 	mem->size += (IPA_NAT_INDEX_TABLE_ENTRY_SIZE * total_entries);
-	IPADBG("Nat Base and Index Table size: %d\n", mem->size);
+	IPADBG("Nat Base and Index Table size: %zu\n", mem->size);
 
 	if (!ipv4_nat_cache.ipa_fd) {
 		fd = open(IPA_DEV_NAME, O_RDONLY);
