@@ -141,7 +141,7 @@ BOARD_USES_QC_TIME_SERVICES := true
 
 # Power
 TARGET_HAS_LEGACY_POWER_STATS := true
-TARGET_HAS_NO_WIFI_STATS := true
+TARGET_HAS_NO_WlAN_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
 
 # Protobuf-c is supported in this build
