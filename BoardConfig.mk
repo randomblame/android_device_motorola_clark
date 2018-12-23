@@ -32,6 +32,10 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53.a57
 TARGET_NO_BOOTLOADER := true
 
+# Assert
+TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
+TARGET_OTA_ASSERT_DEVICE := clark
+
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_ACDB_LICENSE := true
@@ -159,6 +163,7 @@ PROTOBUF_SUPPORTED := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab.qcom
 
 # Releasetools
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_motorola
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/releasetools
 
 # Ril

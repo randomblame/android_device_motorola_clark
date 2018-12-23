@@ -1,1 +1,1 @@
-require version-bootloader=0xA050|0xA052
+require version-modem=2.6-00185

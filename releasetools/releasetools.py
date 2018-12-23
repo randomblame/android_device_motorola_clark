@@ -15,10 +15,10 @@
 import re
 
 def FullOTA_Assertions(info):
-  AddBootloaderAssertion(info, info.input_zip)
+  AddModemAssertion(info, info.input_zip)
 
 def IncrementalOTA_Assertions(info):
-  AddBootloaderAssertion(info, info.target_zip)
+  AddModemAssertion(info, info.target_zip)
 
 def FullOTA_InstallEnd(info):
   ExtractFirmwares(info)
@@ -32,11 +32,11 @@ def ExtractFirmwares(info):
   info.script.AppendExtra('unmount("/firmware");')
   info.script.Unmount("/system")
 
-def AddBootloaderAssertion(info, input_zip):
+def AddModemAssertion(info, input_zip):
   android_info = input_zip.read("OTA/android-info.txt")
-  m = re.search(r"require\s+version-bootloader\s*=\s*(\S+)", android_info)
+  m = re.search(r"require\s+version-modem\s*=\s*(\S+)", android_info)
   if m:
-    bootloaders = m.group(1).split("|")
-    if "*" not in bootloaders:
-      info.script.AssertSomeBootloader(*bootloaders)
-    info.metadata["pre-bootloader"] = m.group(1)
+    version = m.group(1).rstrip()
+    if len(version) and '*' not in version:
+      cmd = 'assert(motorola.verify_modem("' + version + '") == "1" || abort("ERROR: This package requires modem version' + version + ' or newer"););'
+      info.script.AppendExtra(cmd)

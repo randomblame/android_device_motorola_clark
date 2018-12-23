@@ -238,6 +238,10 @@ PRODUCT_PACKAGES += \
     libxml2 \
     rild_socket
 
+# Recovery
+PRODUCT_PACKAGES += \
+    librecovery_updater_motorola
+
 # Seccomp policy
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
