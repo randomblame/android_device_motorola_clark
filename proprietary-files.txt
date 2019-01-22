@@ -314,6 +314,13 @@ vendor/lib/hw/gatekeeper.msm8992.so
 vendor/lib64/hw/gatekeeper.msm8992.so
 
 # Display tuning
+bin/mm-pp-daemon:vendor/bin/mm-pp-daemon
+vendor/lib/libdisp-aba.so
+vendor/lib64/libdisp-aba.so
+vendor/lib/libmm-abl-oem.so
+vendor/lib64/libmm-abl-oem.so
+vendor/lib/libmm-abl.so
+vendor/lib64/libmm-abl.so
 vendor/lib/libmm-als.so
 vendor/lib64/libmm-als.so
 vendor/lib/libmm-color-convertor.so
