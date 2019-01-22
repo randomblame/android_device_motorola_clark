@@ -81,9 +81,6 @@ TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1440
 
 PRODUCT_PACKAGES += \
-    pp_calib_data_mipi_mot_cmd_inx_QHD_0_570_v0.xml
-
-PRODUCT_PACKAGES += \
     hwcomposer.msm8992 \
     gralloc.msm8992 \
     copybit.msm8992 \
