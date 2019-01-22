@@ -530,7 +530,6 @@ bin/diag_mdlog-wrap:vendor/bin/diag_mdlog-wrap
 bin/diag_qshrink4_daemon:vendor/bin/diag_qshrink4_daemon
 bin/port-bridge:vendor/bin/port-bridge
 bin/test_diag:vendor/bin/test_diag
-bin/ipacm-diag:vendor/bin/ipacm-diag
 bin/netmgrd:vendor/bin/netmgrd
 bin/qmi_motext_hook:vendor/bin/qmi_motext_hook
 bin/qmuxd:vendor/bin/qmuxd
