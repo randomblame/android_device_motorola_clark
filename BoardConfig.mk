@@ -16,6 +16,8 @@
 
 DEVICE_PATH := device/motorola/clark
 
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
+
 # Arch
 BOARD_VENDOR := motorola-qcom
 TARGET_ARCH := arm64
