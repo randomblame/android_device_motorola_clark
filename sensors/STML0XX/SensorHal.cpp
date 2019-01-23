@@ -19,6 +19,7 @@
  */
 
 #include <float.h>
+#include <string.h>
 
 #include <cutils/log.h>
 
@@ -33,10 +34,7 @@
 
 static int poll__close(struct hw_device_t *dev)
 {
-        SensorsPollContext *ctx = (SensorsPollContext *)dev;
-        if (ctx) {
-                delete ctx;
-        }
+	(void)dev;
         return 0;
 }
 
@@ -131,12 +129,6 @@ static int sensors__get_sensors_list(struct sensors_module_t* module,
 	return ARRAY_SIZE(sSensorList);
 }
 
-static int sensors__set_operation_mode(unsigned int mode)
-{
-	// We only support normal operation. No loopback mode.
-	return mode == 0 ? 0 : -EINVAL;
-}
-
 static struct hw_module_methods_t sensors_module_methods = {
 	open: open_sensors
 };
@@ -153,6 +145,5 @@ struct sensors_module_t HAL_MODULE_INFO_SYM = {
 		dso: NULL,
 		reserved: {0},
 	},
-	get_sensors_list: sensors__get_sensors_list,
-	set_operation_mode: sensors__set_operation_mode
+	get_sensors_list: sensors__get_sensors_list
 };

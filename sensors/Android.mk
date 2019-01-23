@@ -33,6 +33,8 @@ ifeq (, $(filter true,$(BOARD_USES_QCOM_SENSOR_HUB) $(PRODUCT_HAS_QCOMSENSORS)))
 ifeq ($(BOARD_USES_MOT_SENSOR_HUB), true)
 
     ifneq ($(TARGET_SIMULATOR),true)
+ 
+        UTILS_PATH := utils
 
         ###########################################
         # Select sensorhub type based on platform #
@@ -190,6 +192,7 @@ ifeq ($(BOARD_USES_MOT_SENSOR_HUB), true)
     LOCAL_PRELINK_MODULE := false
     LOCAL_MODULE_RELATIVE_PATH := hw
     LOCAL_SRC_FILES := $(SH_PATH)/sensorhub.c
+    LOCAL_SRC_FILES += $(UTILS_PATH)/sensor_time.cpp
 
     ifneq (,$(filter motosh stml0xx,$(SH_MODULE)))
         LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
@@ -201,7 +204,7 @@ ifeq ($(BOARD_USES_MOT_SENSOR_HUB), true)
         LOCAL_C_INCLUDES += bionic/libc/kernel/common
     endif # SH_MODULE == "motosh"/"stml0xx"
 
-    LOCAL_SHARED_LIBRARIES := libcutils libc
+    LOCAL_SHARED_LIBRARIES := libcutils libc libutils liblog
     LOCAL_MODULE := sensorhub.$(TARGET_BOARD_PLATFORM)
     LOCAL_MODULE_TAGS := optional
 
@@ -246,7 +249,7 @@ ifeq ($(BOARD_USES_MOT_SENSOR_HUB), true)
         LOCAL_STATIC_LIBRARIES := AK09912
 
         LOCAL_FORCE_STATIC_EXECUTABLE := false
-        LOCAL_SHARED_LIBRARIES := libc libm libutils libcutils
+        LOCAL_SHARED_LIBRARIES := libc libm libutils libcutils liblog
 
         include $(BUILD_EXECUTABLE)
 
@@ -271,43 +274,28 @@ ifeq ($(BOARD_USES_MOT_SENSOR_HUB), true)
     LOCAL_REQUIRED_MODULES += sensors.$(TARGET_BOARD_PLATFORM)
 
     LOCAL_MODULE_TAGS := optional
-    LOCAL_CFLAGS := -DLOG_TAG=$(SH_LOGTAG) -DMODULE_$(SH_MODULE)
-    LOCAL_MODULE := $(SH_MODULE)
+    LOCAL_CFLAGS := -DLOG_TAG=$(SH_LOGTAG)
+    LOCAL_SRC_FILES := $(SH_PATH)/$(SH_MODULE).cpp
+    LOCAL_MODULE:= $(SH_MODULE)
     #LOCAL_CFLAGS+= -D_DEBUG
-    LOCAL_CFLAGS += -Wall -Wextra
-    LOCAL_CXXFLAGS += -Weffc++ -std=c++14
-    LOCAL_SHARED_LIBRARIES := libcutils libc
-
-    ifneq (, $(or $(call is-board-platform,msm8952), $(call find-word-in-list, motosh, $(SH_MODULE))))
-        LOCAL_SRC_FILES := \
-            MOTOSH/motosh.cpp \
-            MOTOSH/CRC32.c
+    LOCAL_CFLAGS += -Wall -Wextra -Weffc++
+    LOCAL_SHARED_LIBRARIES := libcutils libc liblog
+    ifeq ($(SH_MODULE),motosh)
+        LOCAL_SRC_FILES += $(SH_PATH)/CRC32.c
         LOCAL_REQUIRED_MODULES += sensorhub-blacklist.txt
-
+    endif
+    ifneq (,$(filter motosh stml0xx,$(SH_MODULE)))
         LOCAL_C_INCLUDES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
         # Need the UAPI output directory to be populated with motosh.h/stml0xx.h
         LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
         # This is only needed for 8x10
         LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/uapi
     else
-        LOCAL_SRC_FILES := $(SH_PATH)/$(SH_MODULE).cpp
-
         # For other flash loaders still relying on bionic
         LOCAL_C_INCLUDES += bionic/libc/kernel/common
-    endif
+    endif # SH_MODULE == "motosh"/"stml0xx.h"
 
     include $(BUILD_EXECUTABLE)
-
-    # ** Firmware BlackList **********************************************************
-    include $(CLEAR_VARS)
-    LOCAL_MODULE        := sensorhub-blacklist.txt
-    LOCAL_MODULE_TAGS   := optional
-    LOCAL_MODULE_CLASS  := ETC
-    LOCAL_MODULE_PATH   := $(TARGET_OUT)/etc/firmware
-    LOCAL_SRC_FILES     := $(SH_PATH)/sensorhub-blacklist.txt
-    include $(BUILD_PREBUILT)
-    # ********************************************************************************
-
 
 else # For non sensorhub version of sensors
     ###########################################

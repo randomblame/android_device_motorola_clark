@@ -227,6 +227,7 @@ int HubSensors::setEnable(int32_t handle, int en)
                 new_enabled |= M_DISP_ROTATE;
             found = 1;
             break;
+#ifdef _ENABLE_IR
 	case ID_IR_GESTURE:
             new_enabled &= ~M_IR_GESTURE;
             if (newState)
@@ -245,6 +246,7 @@ int HubSensors::setEnable(int32_t handle, int en)
                 new_enabled |= M_IR_OBJECT;
             found = 1;
             break;
+#endif /* _ENABLE_IR */
         case ID_UNCALIB_GYRO:
             mUncalGyroEnabled = newState;
             new_enabled &= ~M_UNCALIB_GYRO;
@@ -396,6 +398,12 @@ int HubSensors::setEnable(int32_t handle, int en)
             found = 1;
             break;
 #endif
+        case ID_GLANCE_GESTURE:
+            new_enabled &= ~M_GLANCE;
+            if (newState)
+                new_enabled |= M_GLANCE;
+            found = 1;
+            break;
     }
 
     if (found && (new_enabled != mWakeEnabled)) {
@@ -474,9 +482,11 @@ int HubSensors::setDelay(int32_t handle, int64_t ns)
         case ID_FD: status = 0;                                                   break;
         case ID_S: status = 0;                                                    break;
         case ID_CA: status = 0;                                                   break;
+#ifdef _ENABLE_IR
         case ID_IR_GESTURE: status = motosh_ioctl(dev_fd, MOTOSH_IOCTL_SET_IR_GESTURE_DELAY, &delay); break;
         case ID_IR_RAW: status = motosh_ioctl(dev_fd, MOTOSH_IOCTL_SET_IR_RAW_DELAY, &delay); break;
         case ID_IR_OBJECT: status = 0;                                            break;
+#endif /* _ENABLE_IR */
         case ID_SIM: status = 0;                                                  break;
         case ID_UNCALIB_GYRO:
             mUncalGyroReqDelay = delay;
@@ -499,6 +509,7 @@ int HubSensors::setDelay(int32_t handle, int64_t ns)
 #ifdef _ENABLE_LIFT
         case ID_LIFT_GESTURE: status = 0;                                         break;
 #endif
+        case ID_GLANCE_GESTURE: status = 0;                                       break;
         case ID_QUAT_6AXIS:
             rateFd = open(QUAT_6AXIS_RATE_ATTR_NAME, O_WRONLY);
             if (rateFd < 0) {
@@ -850,6 +861,7 @@ int HubSensors::readEvents(sensors_event_t* d, int dLen)
                 data->timestamp = buff.timestamp;
                 data++;
                 break;
+#ifdef _ENABLE_IR
             case DT_IR_GESTURE:
                 data->version = SENSORS_EVENT_T_SIZE;
                 data->sensor = ID_IR_GESTURE;
@@ -888,6 +900,7 @@ int HubSensors::readEvents(sensors_event_t* d, int dLen)
                 data++;
                 setEnable(ID_IR_OBJECT, 0); /* One-shot sensor. Disable now */
                 break;
+#endif /* _ENABLE_IR */
             case DT_SIM:
                 data->version = SENSORS_EVENT_T_SIZE;
                 data->sensor = ID_SIM;
@@ -919,6 +932,19 @@ int HubSensors::readEvents(sensors_event_t* d, int dLen)
                 data++;
                 break;
 #endif
+            case DT_GLANCE:
+                data->version = SENSORS_EVENT_T_SIZE;
+                data->sensor = ID_GLANCE_GESTURE;
+                data->type = SENSOR_TYPE_GLANCE_GESTURE;
+                data->data[0] = 1;                   /* set to 1 for Android compatibility */
+                data->data[1] = STM16TOH(buff.data); /* Currently blocked by Android FW */
+                data->data[2] = 0;
+                data->timestamp = buff.timestamp;
+                data++;
+
+                /* Disable, because this is a one shot sensor */
+                setEnable(ID_GLANCE_GESTURE, 0);
+                break;
             case DT_GYRO_CAL:
                 FILE *fp;
                 int i;

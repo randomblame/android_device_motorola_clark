@@ -101,6 +101,7 @@
 #define MOT_9AXIS_MA    1.0f
 #define MOT_6AXIS_MA    1.0f
 #define MOT_LAGRAV_MA   1.0f
+#define GLANCE_ALGO_MA    (ACCGYR_ACCEL_MA + PROX_MA + ALS_MA)
 
 const struct sensor_t sSensorList[] = {
     { .name = ACCEL_PART_NO " 3-axis Accelerometer",
@@ -194,7 +195,7 @@ const struct sensor_t sSensorList[] = {
                 .minDelay = 0,
                 .fifoReservedEventCount = 0,
                 .fifoMaxEventCount = 0,
-                .stringType = "com.motorola.sensor.display_rotate",
+                .stringType = SENSOR_STRING_TYPE_DISPLAY_ROTATE,
                 .requiredPermission = "",
                 .maxDelay = 0,
                 .flags = SENSOR_FLAG_ON_CHANGE_MODE,
@@ -279,6 +280,7 @@ const struct sensor_t sSensorList[] = {
                 .maxDelay = 0,
                 .flags = SENSOR_FLAG_SPECIAL_REPORTING_MODE | SENSOR_FLAG_WAKE_UP,
                 .reserved = {0,0}},
+#ifdef _ENABLE_IR
     { .name = "IR Gestures",
                 .vendor = VENDOR_MOT,
                 .version = 1,
@@ -312,7 +314,7 @@ const struct sensor_t sSensorList[] = {
                 .maxDelay = 200000,
                 .flags = SENSOR_FLAG_CONTINUOUS_MODE,
                 .reserved = {0,0} },
-#endif
+#endif /* _ENABLE_RAW_IR_DATA */
     { .name = "IR Object Detect",
                 .vendor = VENDOR_MOT,
                 .version = 1,
@@ -329,6 +331,7 @@ const struct sensor_t sSensorList[] = {
                 .maxDelay = 0,
                 .flags = SENSOR_FLAG_ONE_SHOT_MODE,
                 .reserved = {0,0} },
+#endif /* _ENABLE_IR */
     { .name = "Significant Motion",
                 .vendor = VENDOR_MOT,
                 .version = 1,
@@ -516,6 +519,22 @@ const struct sensor_t sSensorList[] = {
                 .flags = SENSOR_FLAG_CONTINUOUS_MODE,
                 .reserved = {0,0} },
 #endif
+    { .name = "Glance Gesture",
+                .vendor = VENDOR_MOT,
+                .version = 1,
+                .handle = SENSORS_HANDLE_BASE+ID_GLANCE_GESTURE,
+                .type = SENSOR_TYPE_GLANCE_GESTURE,
+                .maxRange = 1.0f,
+                .resolution = 1.0f,
+                .power = GLANCE_ALGO_MA,
+                .minDelay = -1,
+                .fifoReservedEventCount = 0,
+                .fifoMaxEventCount = 0,
+                .stringType = SENSOR_STRING_TYPE_GLANCE_GESTURE,
+                .requiredPermission = "",
+                .maxDelay = 0,
+                .flags = SENSOR_FLAG_ONE_SHOT_MODE | SENSOR_FLAG_WAKE_UP,
+                .reserved = {0,0}},
 };
 const int sSensorListSize = sizeof(sSensorList)/sizeof(*sSensorList);
 
