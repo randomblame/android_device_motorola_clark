@@ -170,6 +170,18 @@ include device/qcom/sepolicy-legacy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     $(DEVICE_PATH)/sepolicy
 
+# Sensors
+BOARD_USES_MOT_SENSOR_HUB := true
+MOT_SENSOR_HUB_HW_ICM20645 := true
+#MOT_AP_SENSOR_HW_REARPROX := true
+MOT_SENSOR_HUB_HW_TYPE_L4 := true
+MOT_SENSOR_HUB_FEATURE_CAMFSYNC := true
+MOT_SENSOR_HUB_FEATURE_LA := true
+MOT_SENSOR_HUB_FEATURE_GR := true
+MOT_SENSOR_HUB_FEATURE_CHOPCHOP := true
+MOT_SENSOR_HUB_FEATURE_LIFT := true
+#MOT_SENSOR_HUB_FEATURE_PEDO := true
+
 # Shims
 TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib64/lib-imsvt.so|libshims_ims.so \

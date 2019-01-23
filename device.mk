@@ -235,7 +235,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensorhub-blacklist.txt:system/etc/firmware/sensorhub-blacklist.txt
 
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl
+    android.hardware.sensors@1.0-impl \
+    libsensorhub \
+    motosh \
+    sensorhub.msm8992 \
+    sensors.msm8992 
 
 # Telephony
 PRODUCT_PACKAGES += \
