@@ -54,7 +54,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 # Camera
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := MediaCodec.cpp
+LOCAL_SRC_FILES := MediaCodec.cpp AudioSource.cpp
 
 LOCAL_SHARED_LIBRARIES := libstagefright libmedia
 
