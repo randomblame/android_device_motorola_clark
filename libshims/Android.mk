@@ -52,19 +52,6 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
-# Camera
-include $(CLEAR_VARS)
-LOCAL_SRC_FILES := MediaCodec.cpp AudioSource.cpp
-
-LOCAL_SHARED_LIBRARIES := libstagefright libmedia
-
-LOCAL_MODULE := libshims_camera
-LOCAL_MODULE_TAGS := optional
-LOCAL_MULTILIB := 32
-LOCAL_PROPRIETARY_MODULE := true
-
-include $(BUILD_SHARED_LIBRARY)
-
 # GPS
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := get_process_name.c
