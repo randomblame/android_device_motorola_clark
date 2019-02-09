@@ -446,7 +446,7 @@ service qseecomd /system/vendor/bin/qseecomd
     class core
     user root
     group root
-    writepid /dev/cpuset/system-background/tasks
+    writepid /dev/cpuset/foreground/tasks
 
 service per_mgr /system/vendor/bin/pm-service
     class core
