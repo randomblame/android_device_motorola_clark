@@ -277,7 +277,9 @@ on post-fs-data
     mkdir /data/misc/location/gpsone_d 0770 system gps
     mkdir /data/misc/location/quipc 0770 gps system
     mkdir /data/misc/location/gsiff 0770 gps gps
-    mkdir /data/misc/camera 0770 camera camera
+
+    # Create folder for our hex edited mm-qcamera-daemon and camera blobs
+    mkdir /data/vendor/qcam 0770 camera camera
 
     #Create directories for gpsone_daemon services
     mkdir /data/misc/gpsone_d 0770 system gps
