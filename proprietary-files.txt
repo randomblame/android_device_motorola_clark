@@ -172,6 +172,7 @@ vendor/lib/libmmcamera_isp_scaler_encoder44.so
 vendor/lib/libmmcamera_isp_scaler_viewfinder44.so
 vendor/lib/libmmcamera_isp_wb40.so
 vendor/lib/libmmcamera_mot_imx230.so
+vendor/lib/libSonyIMX230PdafLibrary.so
 vendor/lib/libmmcamera_omnivision_ov5693_eeprom.so
 vendor/lib/libmmcamera_ov5693.so
 vendor/lib/libmmcamera_sony_imx230_eeprom.so
