@@ -512,7 +512,7 @@ service charger /charger
     seclabel u:r:healthd:s0
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.motosh /system/vendor/bin/motosh boot
+service motosh /system/bin/motosh boot
     class main
     user system
     group system misc input vendor_mot_tcmd
