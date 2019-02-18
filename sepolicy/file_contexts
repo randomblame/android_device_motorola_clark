@@ -5,7 +5,7 @@
 /data/power_supply_logger(/.*)?                 u:object_r:battery_data_file:s0
 
 /dev/bcm2079x-i2c                               u:object_r:nfc_device:s0
-/dev/block/platform/soc.0/f9824900.sdhci/by-name/metadata          u:object_r:metadata_block_device:s0
+/dev/block/bootdevice/by-name/metadata          u:object_r:metadata_block_device:s0
 /dev/mot_hob_ram                                u:object_r:radio_data_file:s0
 /dev/motosh                                     u:object_r:sensors_device:s0
 /dev/motosh_as                                  u:object_r:sensors_device:s0
@@ -25,10 +25,15 @@
 /sys/devices/soc\.0/qcom,mincpubw\.[0-9]+/devfreq/qcom,mincpubw\.[0-9]+(/.*)?        u:object_r:sysfs_devices_system_cpu:s0
 /sys/devices/virtual/net/rmnet_ipa0/queues/rx-0/rps_cpus                             u:object_r:sysfs_devices_system_cpu:s0
 /sys/kernel/debug/rmt_storage(/.*)?             u:object_r:debugfs_rmt_storage:s0
+/sys/module/cpu_boost(/.*)?                     u:object_r:sysfs_devices_system_cpu:s0
+/sys/module/lpm_levels(/.*)?                    u:object_r:sysfs_power_management:s0
+/sys/module/msm_performance(/.*)?               u:object_r:sysfs_performance:s0
 /sys/power/autosleep                            u:object_r:sysfs_power:s0
 
 /system/bin/adspd                               u:object_r:adspd_exec:s0
+/system/bin/batt_health                         u:object_r:batt_health_exec:s0
 /system/bin/hardware_revisions.sh               u:object_r:hwrev_exec:s0
 /system/bin/init.qcom.power.sh                  u:object_r:init-power-sh_exec:s0
 /system/bin/motosh                              u:object_r:sensors_exec:s0
+/system/bin/perfd                               u:object_r:perfd_exec:s0
 /system/bin/thermanager                         u:object_r:thermanager_exec:s0
