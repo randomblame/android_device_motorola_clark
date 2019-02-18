@@ -118,7 +118,7 @@ USE_DEVICE_SPECIFIC_DATA_IPA_CFG_MGR := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=none androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 earlyprintk=msm_hsl_uart,0xf991e000 utags.blkdev=/dev/block/platform/soc.0/f9824900.sdhci/by-name/utags utags.backup=/dev/block/platform/soc.0/f9824900.sdhci/by-name/utagsBackup boot_cpus=0-5 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=none androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 earlyprintk=msm_hsl_uart,0xf991e000 utags.blkdev=/dev/block/platform/soc.0/f9824900.sdhci/by-name/utags utags.backup=/dev/block/platform/soc.0/f9824900.sdhci/by-name/utagsBackup boot_cpus=0-5 androidboot.selinux=enforcing
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE :=  4096
 BOARD_KERNEL_SEPARATED_DT := true
