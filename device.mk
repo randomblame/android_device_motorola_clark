@@ -221,6 +221,7 @@ PRODUCT_PACKAGES+=\
 
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
+    libqsap_sdk \
     ebtables \
     ethertypes \
     libnl_2 \
@@ -228,6 +229,7 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libshims_ims \
     libshim_ril \
+    libqsap_shim \
     libxml2 \
     rild_socket
 
