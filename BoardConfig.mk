@@ -129,7 +129,9 @@ TARGET_KERNEL_CONFIG := clark_defconfig
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8992
 #TARGET_KERNEL_SOURCE := kernel/motorola/3.18
-#TARGET_KERNEL_SOURCE := kernel/motorola/3.14
+#TARGET_KERNEL_SOURCE := kernel/mainline/linux
+#TARGET_KERNEL_SOURCE := kernel/caf/msm-3.10
+#TARGET_KERNEL_SOURCE := kernel/caf/4.14a
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
