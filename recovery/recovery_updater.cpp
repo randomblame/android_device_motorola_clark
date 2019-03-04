@@ -175,7 +175,7 @@ Value *VerifyModemFn(const char *name, State *state,
     if (ret) {
         return ErrorAbort(
             state, kVendorFailure,
-            "%s() failed to read current MODEM build time-stamp: %d", name,
+            "%s() FAILED TO READ MODEM VERSION! Your modem is incompatible with this ROM: %d", name,
             ret);
     }
 
@@ -189,7 +189,7 @@ Value *VerifyModemFn(const char *name, State *state,
     std::string m1(current_modem_version);
 
     for (auto &modem_version : args) {
-        uiPrintf(state, "Device: %s, Target: %s", m1.c_str(),
+        uiPrintf(state, "MODEM VERSION: %s", m1.c_str(),
                  modem_version.c_str());
 
         if (modem_version.compare(m1) <= 0) {
