@@ -41,9 +41,9 @@
 #define MODEM_VER_STR "QC_IMAGE_VERSION_STRING=ADSP.8992."
 #define MODEM_VER_STR_LEN 34
 #define MODEM_VER_BUF_LEN 10
-/* skip the first 19MB to avoid old version (moto modem has multiple versions)
+/* skip the first 6MB to avoid old version (moto modem has multiple versions)
  */
-#define MODEM_OFFSET_SZ 19 * 1024 * 1024
+#define MODEM_OFFSET_SZ 6 * 1024 * 1024
 
 /* Boyer-Moore string search implementation from Wikipedia */
 
