@@ -69,6 +69,7 @@ void QCamera2HardwareInterface::zsl_channel_cb(mm_camera_super_buf_t *recvd_fram
     bool log_matching = false;
     QCamera2HardwareInterface *pme = (QCamera2HardwareInterface *)userdata;
     if (pme == NULL ||
+        recvd_frame == NULL ||
         pme->mCameraHandle == NULL ||
         pme->mCameraHandle->camera_handle != recvd_frame->camera_handle){
        ALOGE("%s: camera obj not valid", __func__);
@@ -238,17 +239,19 @@ void QCamera2HardwareInterface::zsl_channel_cb(mm_camera_super_buf_t *recvd_fram
         mm_camera_buf_def_t *pMetaFrame = NULL;
         QCameraStream *pStream = NULL;
         for (uint32_t i = 0; i < frame->num_bufs; i++) {
-            pStream = pChannel->getStreamByHandle(frame->bufs[i]->stream_id);
-            if (pStream != NULL) {
-                if (pStream->isTypeOf(CAM_STREAM_TYPE_METADATA)) {
-                    pMetaFrame = frame->bufs[i];
-                    if (pMetaFrame != NULL &&
-                            ((metadata_buffer_t *)pMetaFrame->buffer)->is_tuning_params_valid) {
-                        pme->dumpMetadataToFile(pStream, pMetaFrame, (char *) "ZSL_Snapshot");
-                    }
-                    break;
-                }
-            }
+            if (pChannel != NULL) {
+              pStream = pChannel->getStreamByHandle(frame->bufs[i]->stream_id);
+              if (pStream != NULL) {
+                  if (pStream->isTypeOf(CAM_STREAM_TYPE_METADATA)) {
+                      pMetaFrame = frame->bufs[i];
+                      if (pMetaFrame != NULL &&
+                              ((metadata_buffer_t *)pMetaFrame->buffer)->is_tuning_params_valid) {
+                          pme->dumpMetadataToFile(pStream, pMetaFrame, (char *) "ZSL_Snapshot");
+                      }
+                      break;
+                  }
+              }
+           }
         }
     }
 
@@ -258,16 +261,18 @@ void QCamera2HardwareInterface::zsl_channel_cb(mm_camera_super_buf_t *recvd_fram
         CDBG_HIGH("%s : ZSL super buffer contains:", __func__);
         QCameraStream *pStream = NULL;
         for (uint32_t i = 0; i < frame->num_bufs; i++) {
-            pStream = pChannel->getStreamByHandle(frame->bufs[i]->stream_id);
-            if (pStream != NULL ) {
-                CDBG_HIGH("%s: Buffer with V4L index %d frame index %d of type %d Timestamp: %ld %ld ",
-                        __func__,
-                        frame->bufs[i]->buf_idx,
-                        frame->bufs[i]->frame_idx,
-                        pStream->getMyType(),
-                        frame->bufs[i]->ts.tv_sec,
-                        frame->bufs[i]->ts.tv_nsec);
-            }
+            if (pChannel != NULL) {
+              pStream = pChannel->getStreamByHandle(frame->bufs[i]->stream_id);
+              if (pStream != NULL ) {
+                  CDBG_HIGH("%s: Buffer with V4L index %d frame index %d of type %d Timestamp: %ld %ld ",
+                          __func__,
+                          frame->bufs[i]->buf_idx,
+                          frame->bufs[i]->frame_idx,
+                          pStream->getMyType(),
+                          frame->bufs[i]->ts.tv_sec,
+                          frame->bufs[i]->ts.tv_nsec);
+              }
+           }
         }
     }
 
