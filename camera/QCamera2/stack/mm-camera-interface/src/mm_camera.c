@@ -257,12 +257,12 @@ int32_t mm_camera_open(mm_camera_obj_t *my_obj)
     uint32_t globalLogLevel = 0;
 
     property_get("persist.camera.hal.debug", prop, "0");
-    int val = atoi(prop);
+    int val = 5;//atoi(prop);
     if (0 <= val) {
         gMmCameraIntfLogLevel = (uint32_t)val;
     }
     property_get("persist.camera.global.debug", prop, "0");
-    val = atoi(prop);
+    val = 5;//atoi(prop);
     if (0 <= val) {
         globalLogLevel = (uint32_t)val;
     }
@@ -1962,3 +1962,4 @@ int32_t mm_camera_channel_advanced_capture(mm_camera_obj_t *my_obj,
     CDBG("%s: X",__func__);
     return rc;
 }
+

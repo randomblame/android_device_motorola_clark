@@ -53,7 +53,7 @@ static mm_camera_ctrl_t g_cam_ctrl;
 
 static pthread_mutex_t g_handler_lock = PTHREAD_MUTEX_INITIALIZER;
 static uint16_t g_handler_history_count = 0; /* history count for handler */
-volatile uint32_t gMmCameraIntfLogLevel = 1;
+volatile uint32_t gMmCameraIntfLogLevel = 5;
 
 /*===========================================================================
  * FUNCTION   : mm_camera_util_generate_handler
@@ -1523,9 +1523,9 @@ uint8_t get_num_of_cameras()
 
     property_get("persist.camera.hal.debug", prop, "0");
     int val = atoi(prop);
-    if (0 <= val) {
-        gMmCameraIntfLogLevel = (uint32_t)val;
-    }
+    //if (0 <= val) {
+    //    gMmCameraIntfLogLevel = (uint32_t)val;
+    //}
     property_get("persist.camera.global.debug", prop, "0");
     val = atoi(prop);
     if (0 <= val) {
@@ -1533,8 +1533,8 @@ uint8_t get_num_of_cameras()
     }
 
     /* Highest log level among hal.logs and global.logs is selected */
-    if (gMmCameraIntfLogLevel < globalLogLevel)
-        gMmCameraIntfLogLevel = globalLogLevel;
+    //if (gMmCameraIntfLogLevel < globalLogLevel)
+    //    gMmCameraIntfLogLevel = globalLogLevel;
 
     CDBG("%s : E", __func__);
 
