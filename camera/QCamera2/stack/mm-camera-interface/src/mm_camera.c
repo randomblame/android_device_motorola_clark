@@ -249,7 +249,7 @@ int32_t mm_camera_open(mm_camera_obj_t *my_obj)
 {
     char dev_name[MM_CAMERA_DEV_NAME_LEN];
     int32_t rc = 0;
-    int8_t n_try=MM_CAMERA_DEV_OPEN_TRIES;
+    int8_t n_try=10; //MM_CAMERA_DEV_OPEN_TRIES;
     uint8_t sleep_msec=MM_CAMERA_DEV_OPEN_RETRY_SLEEP;
     int cam_idx = 0;
     const char *dev_name_value = NULL;
@@ -1852,8 +1852,8 @@ int32_t mm_camera_util_s_ctrl(int32_t fd,  uint32_t id, int32_t *value)
     }
     rc = ioctl(fd, VIDIOC_S_CTRL, &control);
 
-    CDBG("%s: fd=%d, S_CTRL, id=0x%x, value = %p, rc = %d\n",
-         __func__, fd, id, value, rc);
+    CDBG("%s: fd=%d, S_CTRL, id=0x%x, value = %p, rc = %d, errno = %d\n",
+         __func__, fd, id, value, rc, errno);
     if (value != NULL) {
         *value = control.value;
     }
