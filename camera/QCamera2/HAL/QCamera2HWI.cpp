@@ -65,7 +65,7 @@ namespace qcamera {
 
 cam_capability_t *gCamCaps[MM_CAMERA_MAX_NUM_SENSORS];
 static pthread_mutex_t g_camlock = PTHREAD_MUTEX_INITIALIZER;
-volatile uint32_t gCamHalLogLevel = 1;
+volatile uint32_t gCamHalLogLevel = 5;
 
 camera_device_ops_t QCamera2HardwareInterface::mCameraOps = {
     .set_preview_window =         QCamera2HardwareInterface::set_preview_window,
@@ -1675,21 +1675,8 @@ uint8_t QCamera2HardwareInterface::getBufNumRequired(cam_stream_type_t stream_ty
     case CAM_STREAM_TYPE_OFFLINE_PROC:
         {
             bufferCnt = minCaptureBuffers;
-            // One of the ubifocus buffers is miscellaneous buffer
-            if (mParameters.isUbiRefocus()) {
-                bufferCnt -= 1;
-            }
             if (mLongshotEnabled) {
-                char prop[PROPERTY_VALUE_MAX];
-                memset(prop, 0, sizeof(prop));
-                property_get("persist.camera.longshot.stages", prop, "0");
-                int longshotStages = atoi(prop);
-                if (longshotStages > 0 && longshotStages < CAMERA_LONGSHOT_STAGES) {
-                    bufferCnt = longshotStages;
-                }
-                else {
-                    bufferCnt = CAMERA_LONGSHOT_STAGES;
-                }
+					 bufferCnt = CAMERA_LONGSHOT_STAGES;
             }
         }
         break;
@@ -7727,7 +7714,7 @@ int32_t QCamera2HardwareInterface::waitDefferedWork(int32_t &job_id)
 bool QCamera2HardwareInterface::isRegularCapture()
 {
     bool ret = false;
-
+#if 0
     if (numOfSnapshotsExpected() == 1 &&
         !isLongshotEnabled() &&
         !mParameters.isHDREnabled() &&
@@ -7735,6 +7722,7 @@ bool QCamera2HardwareInterface::isRegularCapture()
         !isZSLMode() && !mParameters.getofflineRAW()) {
             ret = true;
     }
+#endif
     return ret;
 }
 
@@ -7756,9 +7744,9 @@ void QCamera2HardwareInterface::getLogLevel()
 
     property_get("persist.camera.hal.debug", prop, "0");
     int val = atoi(prop);
-    if (0 <= val) {
-        gCamHalLogLevel = (uint32_t)val;
-    }
+    //if (0 <= val) {
+    //    gCamHalLogLevel = (uint32_t)val;
+    //}
     property_get("persist.camera.global.debug", prop, "0");
     val = atoi(prop);
     if (0 <= val) {
@@ -7766,8 +7754,8 @@ void QCamera2HardwareInterface::getLogLevel()
     }
 
     /* Highest log level among hal.logs and global.logs is selected */
-    if (gCamHalLogLevel < globalLogLevel)
-        gCamHalLogLevel = globalLogLevel;
+    //if (gCamHalLogLevel < globalLogLevel)
+    //    gCamHalLogLevel = globalLogLevel;
 
     return;
 }

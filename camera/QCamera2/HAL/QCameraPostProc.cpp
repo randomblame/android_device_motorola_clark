@@ -715,9 +715,11 @@ bool QCameraPostProcessor::validatePostProcess(mm_camera_super_buf_t *frame)
 
     pChannel = m_parent->getChannelByHandle(frame->ch_id);
     for (int8_t i = 0; i < mTotalNumReproc; i++) {
-        if (pChannel == mPPChannels[i]->getSrcChannel()) {
-            m_pReprocChannel = mPPChannels[i];
-            break;
+		  if (mPPChannels[i] != NULL) {
+            if (pChannel == mPPChannels[i]->getSrcChannel()) {
+                m_pReprocChannel = mPPChannels[i];
+                break;
+			   }
         }
     }
 
