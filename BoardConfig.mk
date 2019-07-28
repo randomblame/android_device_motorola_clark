@@ -169,9 +169,6 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/releasetools
 # Ril
 TARGET_RIL_VARIANT := caf
 
-# SDClang
-TARGET_USE_SDCLANG := true
-
 # SELinux
 #include device/qcom/sepolicy/sepolicy.mk
 include device/qcom/sepolicy-legacy/sepolicy.mk
