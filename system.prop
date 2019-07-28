@@ -62,7 +62,7 @@ dalvik.vm.dex2oat-threads=2
 dalvik.vm.image-dex2oat-threads=4
 
 # DRM
-drm.service.enabled=true
+drm.service.enabled=1
 
 # FM
 ro.fm.transmitter=false
