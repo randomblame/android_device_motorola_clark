@@ -578,9 +578,3 @@ service imscmservice /system/bin/imscmservice
    class main
    user system
    group radio diag inet log
-
-service ppd /vendor/bin/mm-pp-daemon
-    class hal
-    user system
-    socket pps stream 0660 system system
-    group system graphics
