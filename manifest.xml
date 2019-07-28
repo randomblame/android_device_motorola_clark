@@ -54,18 +54,14 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.drm</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ICryptoFactory</name>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>IDrmFactory</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
+    <name>android.hardware.drm</name>
+    <transport arch="32+64">passthrough</transport>
+    <version>1.0</version>
+    <interface>
+        <name>IDrmFactory</name>
+        <instance>default</instance>
+    </interface>
+</hal>
     <hal format="hidl">
         <name>android.hardware.gatekeeper</name>
         <transport>hwbinder</transport>
