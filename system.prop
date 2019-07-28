@@ -48,9 +48,15 @@ ro.qc.sdk.camera.facialproc=false
 # Coresight
 persist.debug.coresight.config=stm-events
 
+# Dalvik heap
+dalvik.vm.heapstartsize=16m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapminfree=2m
+dalvik.vm.heapmaxfree=8m
+
 # Dalvik
 dalvik.vm.boot-dex2oat-threads=4
-dalvik.vm.dex2oat-threads=4
+dalvik.vm.dex2oat-threads=2
 dalvik.vm.image-dex2oat-threads=4
 
 # DRM
