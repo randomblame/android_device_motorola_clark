@@ -20,8 +20,8 @@
 	<ctl name="IN3L Volume" value="18" />
 	<ctl name="IN3R Volume" value="18" />
 	<ctl name="IN1R Digital Volume" value="142" />
-	<ctl name="IN2L Digital Volume" value="128" />
-	<ctl name="IN2R Digital Volume" value="128" />
+	<ctl name="IN2L Digital Volume" value="150" />
+	<ctl name="IN2R Digital Volume" value="150" />
 	<ctl name="IN3L Digital Volume" value="128" />
 	<ctl name="IN3R Digital Volume" value="128" />
 	<ctl name="IN HPF Cutoff Frequency" value="40Hz" />
