@@ -463,6 +463,13 @@ service time_daemon /system/vendor/bin/time_daemon
     group root
     writepid /dev/cpuset/system-background/tasks
 
+service ppd /system/vendor/bin/mm-pp-daemon
+    class late_start
+    disabled
+    user system
+    socket pps stream 0660 system system
+    group system graphics
+
 service adsprpcd /system/vendor/bin/adsprpcd
     class main
     user media
