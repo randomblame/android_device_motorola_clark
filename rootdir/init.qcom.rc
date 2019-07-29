@@ -20,9 +20,7 @@ on init
     mkdir /fsg 755 root root
 
     # Setup symlinks
-    symlink /data/tombstones /tombstones
     symlink /sdcard /mnt/sdcard
-    symlink /sdcard /storage/sdcard0
 
 
     # Add a cpuset for the camera daemon
@@ -241,11 +239,9 @@ on post-fs-data
     chmod 2770 /data/system/perfd
     rm /data/system/perfd/default_values
 
-    mkdir /data/tombstones 0771 system system
-    mkdir /tombstones/modem 0771 system system
-    mkdir /tombstones/lpass 0771 system system
-    mkdir /tombstones/wcnss 0771 system system
-    mkdir /tombstones/dsps 0771 system system
+    mkdir /data/tombstones/modem 0771 system system
+    mkdir /data/tombstones/lpass 0771 system system
+    mkdir /data/tombstones/dsps 0771 system system
 
     # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
     # We chown/chmod /persist again so because mount is run as root + defaults
@@ -290,7 +286,6 @@ on post-fs-data
     mkdir /data/adspd/ 0770 audio oem_2950
     mkdir /data/hardware_revisions 0755 system system
     mkdir /data/connectivity 0771 system system
-    chown system system /data/connectivity
 
     # Create directory from IMS services
     mkdir /data/shared 0755 system system
@@ -299,10 +294,10 @@ on post-fs-data
     mkdir /data/fota 0771 system system
 
     # Create /data/time folder for time-services
-    mkdir /data/time/ 0700 system system
+    mkdir /data/time 0700 system system
 
     # Create folders for audio files
-    mkdir /data/audio/ 0770 media audio
+    mkdir /data/audio 0770 media audio
     mkdir /data/audio/acdbdata 0770 media audio
     mkdir /data/audio/acdbdata/delta 0770 media audio
 
