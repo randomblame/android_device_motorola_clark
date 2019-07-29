@@ -5792,7 +5792,7 @@ int32_t QCamera2HardwareInterface::getPPConfig(cam_pp_feature_config_t &pp_confi
             if (needRotationReprocess()) {
                 pp_config.feature_mask |= CAM_QCOM_FEATURE_ROTATION;
                 uint32_t rotation = mParameters.getJpegRotation();
-					// rotation = 0;
+					 rotation = 0;
                 if (rotation == 0) {
                     pp_config.rotation = ROTATE_0;
                 } else if (rotation == 90) {
@@ -7027,7 +7027,7 @@ bool QCamera2HardwareInterface::needReprocess()
         pthread_mutex_unlock(&m_parm_lock);
         return false;
     }
-
+#if 0
     if ((gCamCaps[mCameraId]->qcom_supported_feature_mask & CAM_QCOM_FEATURE_ROTATION) > 0 &&
             (mParameters.getJpegRotation() > 0)) {
             // current rotation is not zero, and pp has the capability to process rotation
@@ -7036,7 +7036,6 @@ bool QCamera2HardwareInterface::needReprocess()
             pthread_mutex_unlock(&m_parm_lock);
             return true;
     }
-#if 0
     if (isZSLMode()) {
         if (((gCamCaps[mCameraId]->min_required_pp_mask > 0) ||
              mParameters.isWNREnabled() || isCACEnabled())) {
