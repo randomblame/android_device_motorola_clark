@@ -1739,8 +1739,9 @@ QCameraMemory *QCamera2HardwareInterface::allocateStreamBuf(
                         stream_type);
             } else {
                 cam_dimension_t dim;
-                QCameraGrallocMemory *grallocMemory =
-                    new QCameraGrallocMemory(mGetMemory, mCallbackCookie);
+                QCameraGrallocMemory *grallocMemory = NULL;
+
+                grallocMemory = new QCameraGrallocMemory(mGetMemory, mCallbackCookie);
 
                 mParameters.getStreamDimension(stream_type, dim);
                 if (grallocMemory)
