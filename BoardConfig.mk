@@ -137,6 +137,9 @@ TARGET_KERNEL_SOURCE := kernel/motorola/msm8992
 #TARGET_KERNEL_SOURCE := kernel/caf/msm-3.10
 #TARGET_KERNEL_SOURCE := kernel/caf/4.14a
 
+# Keystore
+TARGET_PROVIDES_KEYMASTER := true
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
