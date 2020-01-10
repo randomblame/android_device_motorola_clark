@@ -61,13 +61,8 @@ void property_override_dual(char const system_prop[], char const vendor_prop[], 
 
 void vendor_load_properties()
 {
-    std::string platform;
     std::string sku;
     std::string car;
-
-    platform = GetProperty("ro.board.platform", "");
-    if (platform != ANDROID_TARGET)
-        return;
 
     sku = GetProperty("ro.boot.hardware.sku", "");
     car = GetProperty("ro.boot.carrier", "");
