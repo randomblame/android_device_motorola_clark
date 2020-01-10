@@ -7,7 +7,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := libloc_eng
 LOCAL_MODULE_OWNER := qcom
-LOCAL_VENDOR_MODULE := true
+LOCAL_PROPRIETARY_MODULE := true
 
 LOCAL_MODULE_TAGS := optional
 
@@ -62,7 +62,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := gps.msm8992
 LOCAL_MODULE_OWNER := qcom
-LOCAL_VENDOR_MODULE := true
+LOCAL_PROPRIETARY_MODULE := true
 
 LOCAL_MODULE_TAGS := optional
 
