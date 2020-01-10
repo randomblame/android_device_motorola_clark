@@ -305,8 +305,6 @@ vendor/lib64/libtzdrmgenprov.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libWVStreamControlAPI_L1.so
 vendor/lib/mediadrm/libwvdrmengine.so|fb276a490ee3d630f9ba5ba751b00397a2f6dca0
-vendor/lib/mediadrm/libdrmclearkeyplugin.so
-vendor/lib64/mediadrm/libdrmclearkeyplugin.so
 vendor/lib/hw/keystore.msm8992.so
 vendor/lib64/hw/keystore.msm8992.so
 
