@@ -581,3 +581,6 @@ service imscmservice /system/bin/imscmservice
    class main
    user system
    group radio diag inet log
+
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
