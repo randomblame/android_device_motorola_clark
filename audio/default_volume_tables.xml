@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<volumes>
+    <reference name="FULL_SCALE_VOLUME_CURVE">
+        <point>0,0</point>
+        <point>100,0</point>
+    </reference>
+    <reference name="SILENT_VOLUME_CURVE">
+        <point>0,-9600</point>
+        <point>100,-9600</point>
+    </reference>
+    <reference name="DEFAULT_VOLUME_CURVE">
+        <point>1,-4950</point>
+        <point>33,-3350</point>
+        <point>66,-1700</point>
+        <point>100,0</point>
+    </reference>
+</volumes>
