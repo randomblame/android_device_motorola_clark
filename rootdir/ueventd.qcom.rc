@@ -39,6 +39,15 @@
 /dev/log/*                0666   root       log
 /dev/pmsg0                0222   root       log
 
+
+subsystem adsp
+    devname uevent_devpath
+    dirname /dev/adsp
+
+subsystem msm_camera
+    devname uevent_devpath
+    dirname /dev/msm_camera
+
 # the DIAG device node is not world writable/readable.
 /dev/diag                 0660   system     oem_2950
 /dev/ttydiag0             0660   system     oem_2950
@@ -147,6 +156,7 @@
 /dev/adsprpc-smd          0664   system     system
 
 #permissions for audio
+/dev/adsp/*               0660   system     audio
 /dev/audio_slimslave      0660   system     audio
 /dev/msm_qcelp            0660   system     audio
 /dev/msm_evrc             0660   system     audio
